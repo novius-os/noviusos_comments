@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `noviusos_comments_comment` (
+CREATE TABLE IF NOT EXISTS `nos_comment` (
   `comm_id` int(10) unsigned NOT NULL,
   `comm_parent_id` int(10) unsigned NOT NULL,
   `comm_email` varchar(255) NOT NULL,

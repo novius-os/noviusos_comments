@@ -1,1 +1,1 @@
-ALTER TABLE  `noviusos_comments_comment` CHANGE  `comm_id`  `comm_id` INT( 10 ) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE  `nos_comment` CHANGE  `comm_id`  `comm_id` INT( 10 ) UNSIGNED NOT NULL AUTO_INCREMENT;
