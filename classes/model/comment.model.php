@@ -8,7 +8,7 @@
  * @link http://www.novius-os.org
  */
 
-namespace NoviusDev\Comments;
+namespace Nos\Comments;
 
 class Model_Comment extends \Nos\Orm\Model {
     protected static $_table_name = 'nos_comment';

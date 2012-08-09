@@ -6,5 +6,5 @@ return array(
     'provider' => array(
         'name' => 'NoviusOS',
     ),
-    'namespace' => 'NoviusDev\\Comments',
+    'namespace' => 'Nos\\Comments',
 );
