@@ -10,6 +10,6 @@ CREATE TABLE IF NOT EXISTS `nos_comment` (
   `comm_state` enum('published','pending','refused') NOT NULL,
   PRIMARY KEY (`comm_id`),
   KEY `comm_created_at` (`comm_created_at`),
-  KEY `comm_parent_id` (`comm_foreign_id`),
+  KEY `comm_foreign_id` (`comm_foreign_id`),
   KEY `comm_from_table` (`comm_from_table`,`comm_foreign_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
