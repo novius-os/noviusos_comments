@@ -16,7 +16,7 @@ $content = "";
             <div class="error">
                 <?= __('Captcha was incorrect !') ?>
             </div>
-            <?php   } else if ($add_comment_success === true) { ?>
+            <?php   } elseif ($add_comment_success === true) { ?>
             <div class="success">
                 <?= __('Your comment has been successfully added !') ?>
             </div>
