@@ -1,8 +1,7 @@
 <?php
 return array(
-    'name'    => 'Comments',
+    'name'    => 'Comments (required for Blog or News)',
     'version' => '0.1',
-    'icon64'  => 'static/apps/noviusos_blognews/img/64/blog.png',
     'provider' => array(
         'name' => 'NoviusOS',
     ),
