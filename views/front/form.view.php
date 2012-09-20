@@ -7,21 +7,26 @@ $content = "";
     <form class="comment_form" name="TheFormComment" id="TheFormComment" method="post" action="<?= \Nos\Nos::main_controller()->getUrl() ?>#comment_form">
         <input type="hidden" name="todo" value="add_comment">
         <div class="comment_form_title"><?= __('Leave your comment:') ?></div>
-        <?php if (isset($add_comment_success)) {
-        if ($add_comment_success === false) {
-            $author = \Input::post('comm_author');
-            $email = \Input::post('comm_email');
-            $content = \Input::post('comm_content');
-            ?>
+<?php
+if (isset($add_comment_success)) {
+    if ($add_comment_success === false) {
+        $author = \Input::post('comm_author');
+        $email = \Input::post('comm_email');
+        $content = \Input::post('comm_content');
+        ?>
             <div class="error">
                 <?= __('Captcha was incorrect !') ?>
             </div>
-            <?php   } elseif ($add_comment_success === true) { ?>
+        <?php
+    } elseif ($add_comment_success === true) {
+        ?>
             <div class="success">
                 <?= __('Your comment has been successfully added !') ?>
             </div>
-            <?php            }
-    } ?>
+            <?php
+    }
+}
+?>
         <table border="0">
             <tbody><tr>
                 <td align="right"><label for="comm_author"><?= __('Name:') ?></label></td>
