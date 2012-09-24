@@ -45,9 +45,13 @@ if (isset($add_comment_success)) {
                 theme : 'clean'
             };
         </script>
-        <?php if ($use_recaptcha) { ?>
+<?php
+if ($use_recaptcha) {
+    ?>
         <?= ReCaptcha::instance()->get_html() ?>
-        <?php } ?>
+    <?php
+}
+?>
         <div class="comment_submit"><input type="submit" value="<?= __('Validate') ?>"></div>
     </form>
 </div>
