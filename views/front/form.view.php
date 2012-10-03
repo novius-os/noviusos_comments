@@ -6,6 +6,7 @@ $content = "";
 <div class="comment_form" id="comment_form">
     <form class="comment_form" name="TheFormComment" id="TheFormComment" method="post" action="<?= \Nos\Nos::main_controller()->getUrl() ?>#comment_form">
         <input type="hidden" name="todo" value="add_comment">
+        <input class="input_mm" type="hidden" id="<?= $uniqid_mm = uniqid('mm_'); ?>" name="ismm" value="214">
         <div class="comment_form_title"><?= __('Leave your comment:') ?></div>
 <?php
 if (isset($add_comment_success)) {
@@ -55,3 +56,19 @@ if ($use_recaptcha) {
         <div class="comment_submit"><input type="submit" value="<?= __('Validate') ?>"></div>
     </form>
 </div>
+<script type="text/javascript">
+(function() {
+    if (document.addEventListener) {
+        document.addEventListener('mousemove', function() {
+            document.getElementById('<?= $uniqid_mm ?>').value = 327;
+            document.removeEventListener('mousemove', arguments.callee, false);
+        }, false);
+    } else {
+        // Old IE
+        document.attachEvent('onmousemove', function() {
+            document.getElementById('<?= $uniqid_mm ?>').value = 327;
+            document.detachEvent('onmousemove', arguments.callee);
+        });
+    }
+})();
+</script>
