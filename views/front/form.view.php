@@ -29,21 +29,26 @@ if (isset($add_comment_success)) {
 }
 ?>
         <table border="0">
-            <tbody><tr>
+            <tbody>
+            <tr>
                 <td align="right"><label for="comm_author"><?= __('Name:') ?></label></td>
-                <td><input type="text" style="width:300px;" maxlength="100" id="comm_author" name="comm_author" value="<?= htmlentities($author) ?>"></td>
+                <td><input type="text" style="width:300px;" maxlength="100" id="comm_author" name="comm_author" value="<?= e($author) ?>"></td>
             </tr>
             <tr>
                 <td align="right"><label for="comm_email"><?= __('Email (not published):') ?></label></td>
-                <td><input type="text" style="width:300px;" maxlength="100" id="comm_email" name="comm_email" value="<?= htmlentities($email) ?>"></td>
+                <td><input type="text" style="width:300px;" maxlength="100" id="comm_email" name="comm_email" value="<?= e($email) ?>"></td>
             </tr>
-            <tr><td colspan="2"><label for="comm_content"><?= __('Your comment:') ?></label></td></tr>
-            <tr><td colspan="2"><textarea style="width:100%;height:200px;" id="comm_content" name="comm_content"><?= $content ?></textarea></td></tr>
+            <tr>
+                <td colspan="2"><label for="comm_content"><?= __('Your comment:') ?></label></td>
+            </tr>
+            <tr>
+                <td colspan="2"><textarea style="width:100%;height:200px;" id="comm_content" name="comm_content"><?= e($content) ?></textarea></td>
+            </tr>
             </tbody>
         </table>
         <script type="text/javascript">
             var RecaptchaOptions = {
-                theme : 'clean'
+                theme:'clean'
             };
         </script>
 <?php
