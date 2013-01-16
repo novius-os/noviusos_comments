@@ -7,7 +7,7 @@ $content = "";
     <form class="comment_form" name="TheFormComment" id="TheFormComment" method="post" action="<?= \Nos\Nos::main_controller()->getUrl() ?>#comment_form">
         <input type="hidden" name="todo" value="add_comment">
         <input class="input_mm" type="hidden" id="<?= $uniqid_mm = uniqid('mm_'); ?>" name="ismm" value="214">
-        <div class="comment_form_title"><?= __('Leave your comment:') ?></div>
+        <div class="comment_form_title"><?= __('Leave a comment') ?></div>
 <?php
 if (isset($add_comment_success)) {
     if ($add_comment_success === false) {
@@ -16,13 +16,13 @@ if (isset($add_comment_success)) {
         $content = \Input::post('comm_content');
         ?>
             <div class="error">
-                <?= __('Captcha was incorrect !') ?>
+                <?= __('You failed the captcha test. Please try again.') ?>
             </div>
         <?php
     } elseif ($add_comment_success === true) {
         ?>
             <div class="success">
-                <?= __('Your comment has been successfully added !') ?>
+                <?= __('Your comment has been successfully added!') ?>
             </div>
             <?php
     }
@@ -35,7 +35,7 @@ if (isset($add_comment_success)) {
                 <td><input type="text" style="width:300px;" maxlength="100" id="comm_author" name="comm_author" value="<?= e($author) ?>"></td>
             </tr>
             <tr>
-                <td align="right"><label for="comm_email"><?= __('Email (not published):') ?></label></td>
+                <td align="right"><label for="comm_email"><?= __('Email address (never sold, shared nor spammed):') ?></label></td>
                 <td><input type="text" style="width:300px;" maxlength="100" id="comm_email" name="comm_email" value="<?= e($email) ?>"></td>
             </tr>
             <tr>
@@ -58,7 +58,7 @@ if ($use_recaptcha) {
     <?php
 }
 ?>
-        <div class="comment_submit"><input type="submit" value="<?= __('Validate') ?>"></div>
+        <div class="comment_submit"><input type="submit" value="<?= __('Send') ?>"></div>
     </form>
 </div>
 <script type="text/javascript">
