@@ -7,13 +7,7 @@
  *             http://www.gnu.org/licenses/agpl-3.0.html
  * @link http://www.novius-os.org
  */
- 
+
 return array(
-    'name'    => 'Comments (required for both Blog or News stories)',
-    'version' => '0.2',
-    'provider' => array(
-        'name' => 'NoviusOS',
-    ),
-    'namespace' => 'Nos\\Comments',
-    'i18n_file' => 'noviusos_comments::metadata',
+    'Comments (required for both Blog and News stories)' => 'Commentaires (nécessaire pour Blog ou Actualités)',
 );
