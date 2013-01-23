@@ -6,7 +6,7 @@
 // 8 out of 8 words are translated (100%).
 
 return array(
-    #. Overwritten
+    #: metadata
     'Comments (required for both Blog and News stories)' => 'Commentaires (nécessaire pour Blog ou Actualités)',
 
 );
