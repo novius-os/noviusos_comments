@@ -22,7 +22,7 @@ if (isset($add_comment_success)) {
     } elseif ($add_comment_success === true) {
         ?>
             <div class="success">
-                <?= __('Your comment has been successfully added!') ?>
+                <?= __('Your comment has been successfully added.') ?>
             </div>
             <?php
     }
