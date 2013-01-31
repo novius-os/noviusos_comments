@@ -1,3 +1,6 @@
+<?php
+Nos\I18n::current_dictionary('noviusos_comments::common');
+?>
 <li class="comment" id="comment<?= $comment->comm_id ?>">
     <div class="comment_infos">
         <span class="comment_author"><?= e(strtr(__('Comment by {{author}}'), array('{{author}}' => $comment->comm_author))) ?></span>

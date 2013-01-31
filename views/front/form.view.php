@@ -1,4 +1,7 @@
 <?php
+
+Nos\I18n::current_dictionary('noviusos_comments::common');
+
 $author =\Cookie::get('comm_author', '');
 $email = \Cookie::get('comm_email', '');
 $content = "";
