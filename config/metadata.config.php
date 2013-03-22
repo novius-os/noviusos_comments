@@ -9,7 +9,7 @@
  */
 
 return array(
-    'name'    => 'Comments (required for both Blog and News stories)',
+    'name'    => 'Comments',
     'version' => '0.2',
     'provider' => array(
         'name' => 'NoviusOS',
