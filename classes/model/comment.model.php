@@ -16,14 +16,50 @@ class Model_Comment extends \Nos\Orm\Model
     protected static $_primary_key = array('comm_id');
 
     protected static $_properties = array(
-        'comm_id',
-        'comm_from_table',
-        'comm_foreign_id',
-        'comm_email',
-        'comm_author',
-        'comm_content',
-        'comm_created_at',
-        'comm_ip',
-        'comm_state',
+        'comm_id' => array(
+            'default' => null,
+            'data_type' => 'int unsigned',
+            'null' => false,
+        ),
+        'comm_from_table' => array(
+            'default' => null,
+            'data_type' => 'varchar',
+            'null' => false,
+        ),
+        'comm_foreign_id' => array(
+            'default' => null,
+            'data_type' => 'int unsigned',
+            'null' => false,
+        ),
+        'comm_email' => array(
+            'default' => null,
+            'data_type' => 'varchar',
+            'null' => false,
+        ),
+        'comm_author' => array(
+            'default' => null,
+            'data_type' => 'varchar',
+            'null' => false,
+        ),
+        'comm_content' => array(
+            'default' => null,
+            'data_type' => 'text',
+            'null' => false,
+        ),
+        'comm_created_at' => array(
+            'default' => null,
+            'data_type' => 'datetime',
+            'null' => false,
+        ),
+        'comm_ip' => array(
+            'default' => null,
+            'data_type' => 'varchar',
+            'null' => false,
+        ),
+        'comm_state' => array(
+            'default' => null,
+            'data_type' => 'enum',
+            'null' => false,
+        ),
     );
 }
