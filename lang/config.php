@@ -1,9 +1,11 @@
 <?php
 
 return array(
-    'front' => array(
-        '^views/front/',
+    'dictionaries' => array(
+        'front' => array(
+            '^views/front/',
+        ),
+        // false == default dict
+        'common' => false,
     ),
-    // false == default dict
-    'common' => false,
 );
