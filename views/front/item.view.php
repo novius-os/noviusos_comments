@@ -1,5 +1,5 @@
 <?php
-Nos\I18n::current_dictionary('noviusos_comments::common');
+Nos\I18n::current_dictionary('noviusos_comments::front');
 ?>
 <li class="comment" id="comment<?= $comment->comm_id ?>">
     <div class="comment_infos">
