@@ -1,17 +1,11 @@
 <?php
 
-// Generated on 20/02/2013 17:43:50
+// Generated on 17/04/2013 14:49:11
 
 // 9 out of 9 messages are translated (100%).
 // 34 out of 34 words are translated (100%).
 
 return array(
-    #: views/front/item.view.php:6
-    'Comment by {{author}}' => 'Commentaire par {{author}}',
-
-    #: views/front/item.view.php:7
-    '%d/%m/%Y at %H:%M' => '%d/%m/%Y à %H:%M',
-
     #: views/front/form.view.php:13
     'Leave a comment' => 'Laisser un commentaire',
 
@@ -32,5 +26,11 @@ return array(
 
     #: views/front/form.view.php:64
     'Send' => 'Envoyer',
+
+    #: views/front/item.view.php:6
+    'Comment by {{author}}' => 'Commentaire par {{author}}',
+
+    #: views/front/item.view.php:7
+    '%d/%m/%Y at %H:%M' => '%d/%m/%Y à %H:%M',
 
 );
