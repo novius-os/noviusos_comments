@@ -1,17 +1,11 @@
 <?php
 
-// Generated on 09/04/2013 16:13:10
+// Generated on 24/04/2013 17:47:52
 
 // 9 out of 9 messages are translated (100%).
 // 34 out of 34 words are translated (100%).
 
 return array(
-    #: views/front/item.view.php:6
-    'Comment by {{author}}' => '{{author}}のコメント',
-
-    #: views/front/item.view.php:7
-    '%d/%m/%Y at %H:%M' => '%Y年%m月%d日 %H:%M',
-
     #: views/front/form.view.php:13
     'Leave a comment' => 'コメントを残す',
 
@@ -32,5 +26,11 @@ return array(
 
     #: views/front/form.view.php:64
     'Send' => '送信',
+
+    #: views/front/item.view.php:6
+    'Comment by {{author}}' => '{{author}}のコメント',
+
+    #: views/front/item.view.php:7
+    '%d/%m/%Y at %H:%M' => '%Y年%m月%d日 %H:%M',
 
 );
