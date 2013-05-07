@@ -1,7 +1,7 @@
 <?php
 Nos\I18n::current_dictionary('noviusos_comments::front');
 ?>
-<li class="comment" id="comment<?= $comment->comm_id ?>">
+<li class="comment" id="comment_<?= $comment->comm_id ?>">
     <div class="comment_infos">
         <span class="comment_author"><?= e(strtr(__('Comment by {{author}}'), array('{{author}}' => $comment->comm_author))) ?></span>
         <span class="comment_date"><?= e(Date::forge(strtotime($comment->comm_created_at))->format(__('%d/%m/%Y at %H:%M'))) ?></span>

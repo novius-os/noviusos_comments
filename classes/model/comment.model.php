@@ -21,7 +21,7 @@ class Model_Comment extends \Nos\Orm\Model
             'data_type' => 'int unsigned',
             'null' => false,
         ),
-        'comm_from_table' => array(
+        'comm_foreign_model' => array(
             'default' => null,
             'data_type' => 'varchar',
             'null' => false,
@@ -62,4 +62,11 @@ class Model_Comment extends \Nos\Orm\Model
             'null' => false,
         ),
     );
+
+    protected static $_title_property = 'comm_content';
+
+    function getRelatedItem() {
+        $model = $this->comm_foreign_model;
+        return $model::find($this->comm_foreign_id);
+    }
 }
