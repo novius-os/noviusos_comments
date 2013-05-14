@@ -66,12 +66,20 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
                 'disabled' =>
                 function($item) {
                     return ($item->is_new() || !\Nos\Comments\Model_Comment::count(array(
-                        'where' => array(array('comm_foreign_model' => get_class($item), 'comm_foreign_id' => $item->id)),
+                        'where' => array(
+                            array(
+                                'comm_foreign_model' => get_class($item),
+                                'comm_foreign_id' => $item->id
+                            )
+                        ),
                     ))) ? _('This item has no comments.') : false;
                 }
             );
 
-            $config['actions']['list']['comments'] = \Arr::merge($comments_action_config, $config['actions']['list']['comments']);
+            $config['actions']['list']['comments'] = \Arr::merge(
+                $comments_action_config,
+                $config['actions']['list']['comments']
+            );
         }
 
         if (!isset($config['data_mapping']['comments_count'])) {
@@ -115,7 +123,10 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
                 'allowSizing' => false,
             );
 
-            $config['data_mapping']['comments_count'] = \Arr::merge($comments_data_mapping_config, $config['data_mapping']['comments_count']);
+            $config['data_mapping']['comments_count'] = \Arr::merge(
+                $comments_data_mapping_config,
+                $config['data_mapping']['comments_count']
+            );
         }
     }
 }
