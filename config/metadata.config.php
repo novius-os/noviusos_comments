@@ -15,16 +15,8 @@ return array(
         'name' => 'NoviusOS',
     ),
     'namespace' => 'Nos\\Comments',
-    'i18n_file' => 'noviusos_comments::metadata',
-    'launchers' => array(
-        'Nos\Comments::Comments' => array(
-            'name'    => 'Comments', // displayed name of the launcher
-            'action' => array(
-                'action' => 'nosTabs',
-                'tab' => array(
-                    'url' => 'admin/noviusos_comments/comment/appdesk', // url to load
-                ),
-            ),
-        ),
+    'permission' => array(
+
     ),
+    'i18n_file' => 'noviusos_comments::metadata',
 );
