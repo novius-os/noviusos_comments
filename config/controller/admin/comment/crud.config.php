@@ -60,9 +60,9 @@ return array(
             'form' => array(
                 'type' => 'select',
                 'options' => array(
-                    'published' => 'Published',
-                    'pending' => 'Pending',
-                    'refused' => 'Refused'
+                    'published' => __('Published'),
+                    'pending' => __('Pending'),
+                    'refused' => __('Refused')
                 )
             )
         ),

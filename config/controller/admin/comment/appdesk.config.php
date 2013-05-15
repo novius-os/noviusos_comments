@@ -11,7 +11,7 @@ $ret = array(
     'model' => 'Nos\Comments\Model_Comment',
     'search_text' => 'comm_content',
     'query' => array(
-        'order_by' => 'comm_created_at'
+        'order_by' => array('comm_created_at' => 'DESC'),
     )
 );
 

@@ -14,7 +14,7 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
 {
     public static function _init()
     {
-        \Nos\I18n::current_dictionary('nos::orm');
+        \Nos\I18n::current_dictionary('noviusos_comments::common');
     }
 
     protected $_comments_relation = null;
@@ -72,7 +72,7 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
                                 'comm_foreign_id' => $item->id
                             )
                         ),
-                    ))) ? _('This item has no comments.') : false;
+                    ))) ? __('This item has no comments.') : false;
                 }
             );
 

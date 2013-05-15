@@ -12,21 +12,16 @@ return array(
             'title' => __('Content'),
             'value' => function($item) {
                 return Str::truncate($item->comm_content, 80);
-            }
+            },
+            'cellFormatters' => array(
+                'link' => array(
+                    'type' => 'link',
+                    'action' => 'Nos\Comments\Model_Comment.edit'
+                ),
+            ),
         ),
         'comm_email' => array(
             'title' => __('Email'),
-        ),
-        'comm_created_at' => array(
-            'title' => __('Date'),
-            'value' =>
-            function ($item)
-            {
-                if ($item->is_new()) {
-                    return null;
-                }
-                return \Date::create_from_string($item->comm_created_at, 'mysql')->format('%m/%d/%Y %H:%M:%S');
-            },
         ),
         'comm_state' => array(
             'title' => __('State'),
@@ -37,33 +32,48 @@ return array(
             },
             'isSafeHtml' => true
         ),
+        'comm_created_at' => array(
+            'title' => __('Date'),
+            'value' => function ($item) {
+                return \Date::create_from_string($item->comm_created_at, 'mysql')->wijmoFormat();
+            },
+            'dataType' => 'datetime',
+            'dataFormatString' => 'f',
+        ),
         'preview_url' => array(
             'value' => function($item) {
-                $url = $item->getRelatedItem()->url().'?_preview=1#comment_'.$item->comm_id;
+                $url = $item->getRelatedItem()->preview_url().'#comment_'.$item->comm_id;
                 return $url;
             },
         )
     ),
     'actions' => array(
-        'add' => false,
-        'visualise' => array(
-            'label' => __('Visualise'),
-            'primary' => true,
-            'iconClasses' => 'nos-icon16 nos-icon16-eye',
-            'action' => array(
-                'action' => 'window.open',
-                'url' => '{{preview_url}}',
-            ),
-            'disabled' => array(
-                function($item, $params)
-                {
-                    $url = $item->getRelatedItem()->url();
-                    return $url == null;
-                }),
-            'targets' => array(
-                'grid' => true,
-                'toolbar-edit' => true,
+        'list' => array(
+            'add' => false,
+            'visualise' => array(
+                'label' => __('Visualise'),
+                'primary' => true,
+                'iconClasses' => 'nos-icon16 nos-icon16-eye',
+                'action' => array(
+                    'action' => 'window.open',
+                    'url' => '{{preview_url}}',
+                ),
+                'disabled' => array(
+                    function($item, $params)
+                    {
+                        $url = $item->getRelatedItem()->preview_url();
+                        return $url == null;
+                    }),
+                'targets' => array(
+                    'grid' => true,
+                    'toolbar-edit' => true,
+                ),
             ),
         ),
-    )
+        'order' => array(
+            'edit',
+            'visualise',
+            'delete',
+        ),
+    ),
 );
