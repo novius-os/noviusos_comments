@@ -19,4 +19,9 @@ return array(
 
     ),
     'i18n_file' => 'noviusos_comments::metadata',
+    'icons' => array(
+        16 => 'static/apps/noviusos_comments/img/comment-16.png',
+        32 => 'static/apps/noviusos_comments/img/comment-32.png',
+        64 => 'static/apps/noviusos_comments/img/comment-32.png',
+    ),
 );

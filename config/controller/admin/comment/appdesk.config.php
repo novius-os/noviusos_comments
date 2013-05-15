@@ -32,11 +32,13 @@ if ($item != null) {
             'grid' => array(
                 'urlJson' => \Nos\Comments\Controller_Admin_Comment_Appdesk::get_path().'/json?model='.$model.'&id='.$id
             ),
-            'tab' => array(
-                'label' => $appdesk_label,
-            )
+        ),
+        'tab' => array(
+            'label' => $appdesk_label,
+            'iconUrl' => \Config::icon('noviusos_comments', 16),
         )
     );
+
 }
 
 
