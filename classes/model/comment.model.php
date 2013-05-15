@@ -65,7 +65,8 @@ class Model_Comment extends \Nos\Orm\Model
 
     protected static $_title_property = 'comm_content';
 
-    function getRelatedItem() {
+    public function getRelatedItem()
+    {
         $model = $this->comm_foreign_model;
         return $model::find($this->comm_foreign_id);
     }
