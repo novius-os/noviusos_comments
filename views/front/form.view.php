@@ -1,4 +1,12 @@
 <?php
+$class = get_class($from_item);
+$config = \Nos\Comments\API::getConfigurationFromModel($class);
+
+if (!isset($add_comment_success)) {
+    $add_comment_success = \Session::get_flash('noviusos_comment::add_comment_success', 'none');
+}
+
+$use_recaptcha = \Arr::get($config, 'use_recaptcha', false);
 
 Nos\I18n::current_dictionary('noviusos_comments::front');
 
@@ -7,16 +15,18 @@ $email = \Cookie::get('comm_email', '');
 $content = "";
 ?>
 <div class="comment_form" id="comment_form">
-    <form class="comment_form" name="TheFormComment" id="TheFormComment" method="post" action="<?= \Nos\Nos::main_controller()->getUrl() ?>#comment_form">
-        <input type="hidden" name="todo" value="add_comment">
+    <form class="comment_form" name="TheFormComment" id="TheFormComment" method="post" action="/apps/noviusos_comments/api.php">
+        <input type="hidden" name="model" value="<?= $class ?>" />
+        <input type="hidden" name="id" value="<?= $from_item->id ?>" />
+        <input type="hidden" name="action" value="addComment" />
         <input class="input_mm" type="hidden" id="<?= $uniqid_mm = uniqid('mm_'); ?>" name="ismm" value="214">
         <div class="comment_form_title"><?= __('Leave a comment') ?></div>
 <?php
 if (isset($add_comment_success)) {
     if ($add_comment_success === false) {
-        $author = \Input::post('comm_author');
-        $email = \Input::post('comm_email');
-        $content = \Input::post('comm_content');
+        $author = \Session::get_flash('noviusos_comment::comm_author');
+        $email = \Session::get_flash('noviusos_comment::comm_email');
+        $content = \Session::get_flash('noviusos_comment::comm_content');
         ?>
             <div class="error">
                 <?= __('You failed the captcha test. Please try again.') ?>
@@ -56,9 +66,8 @@ if (isset($add_comment_success)) {
         </script>
 <?php
 if ($use_recaptcha) {
-    ?>
-        <?= ReCaptcha::instance()->get_html() ?>
-    <?php
+    \Package::load('fuel-recatpcha', APPPATH.'packages/fuel-recaptcha/');
+    echo ReCaptcha::instance()->get_html();
 }
 ?>
         <div class="comment_submit"><input type="submit" value="<?= __('Send') ?>"></div>
