@@ -6,6 +6,9 @@ return array(
         'large' => true,
         'save' => 'save',
         'content' => array(
+            'title' => array(
+                'view' => 'noviusos_comments::admin/crud_title',
+            ),
             'test' => array(
                 'view' => 'nos::form/expander',
                 'params' => array(
@@ -35,28 +38,28 @@ return array(
             'dont_save' => true,
         ),
         'comm_author' => array(
-            'label' => __('Author'),
+            'label' => __('Author:'),
             'form' => array(
                 'type' => 'text',
             ),
         ),
         'comm_ip' => array(
-            'label' => __('IP'),
+            'label' => __('Author’s IP address:'),
             'renderer' => 'Nos\Renderer_Text',
             'editable' => false,
         ),
         'comm_email' => array(
-            'label' => __('Email'),
+            'label' => __('Email address:'),
             'form' => array(
                 'type' => 'text',
             ),
         ),
         'comm_created_at' => array(
-            'label' => __('Date'),
+            'label' => __('Sent on:'),
             'renderer' => '\Nos\Renderer_Datetime_Picker'
         ),
         'comm_state' => array(
-            'label' => __('State'),
+            'label' => __('Status:'),
             'form' => array(
                 'type' => 'select',
                 'options' => array(
@@ -67,7 +70,7 @@ return array(
             )
         ),
         'comm_content' => array(
-            'label' => __('Content'),
+            'label' => __('Comment:'),
             'form' => array(
                 'type' => 'textarea',
                 'rows' => 15
