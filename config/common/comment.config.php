@@ -9,7 +9,7 @@ return array(
     'controller' => 'comment/crud',
     'data_mapping' => array(
         'comm_content' => array(
-            'title' => __('Content'),
+            'title' => __('Comment'),
             'value' => function($item) {
                 return Str::truncate($item->comm_content, 80);
             },
@@ -21,10 +21,10 @@ return array(
             ),
         ),
         'comm_email' => array(
-            'title' => __('Email'),
+            'title' => __('Email address'),
         ),
         'comm_state' => array(
-            'title' => __('State'),
+            'title' => __('Status'),
             'value' =>
             function ($item) use ($states)
             {

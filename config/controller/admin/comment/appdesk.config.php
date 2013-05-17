@@ -21,7 +21,7 @@ if ($item != null) {
         return $query;
     });
 
-    $appdesk_label = strtr(__('Comments of ‘{{title}}’'), array('{{title}}' => $item->title));
+    $appdesk_label = strtr(__('Comments for ‘{{title}}’'), array('{{title}}' => $item->title));
 
     $ret['i18n'] = array(
         'items' => $appdesk_label,
