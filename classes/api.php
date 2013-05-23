@@ -8,9 +8,15 @@ class API
     public static $_config_per_model = array();
     protected $_config;
 
-    public function __construct($config)
+    public function __construct($config_or_model)
     {
-        $this->_config = $config;
+        if (strpos($config_or_model, '::') === false) {
+            $model = $config_or_model;
+
+            $config_or_model = static::getConfigurationFromModel($model);
+            $config_or_model['model'] = $model;
+        }
+        $this->_config = $config_or_model;
     }
 
     public static function processRequest()
@@ -43,12 +49,6 @@ class API
     public function addCommentAction($data)
     {
         $ret = $this->addComment($data);
-        \Session::set_flash('noviusos_comment::add_comment_success', $ret);
-        if ($ret == false) {
-            \Session::set_flash('noviusos_comment::comm_email', $data['comm_email']);
-            \Session::set_flash('noviusos_comment::comm_author', $data['comm_author']);
-            \Session::set_flash('noviusos_comment::comm_content', $data['comm_content']);
-        }
         \Response::redirect(\Input::referrer());
     }
 
@@ -90,9 +90,13 @@ class API
 
                 \Cookie::set('comm_email', $data['comm_email']);
                 \Cookie::set('comm_author', $data['comm_author']);
-
+                \Session::set_flash('noviusos_comment::add_comment_success', true);
                 return true;
             } else {
+                \Session::set_flash('noviusos_comment::add_comment_success', false);
+                \Session::set_flash('noviusos_comment::comm_email', $data['comm_email']);
+                \Session::set_flash('noviusos_comment::comm_author', $data['comm_author']);
+                \Session::set_flash('noviusos_comment::comm_content', $data['comm_content']);
                 return false;
             }
         }
@@ -127,5 +131,35 @@ class API
         $item['author'] = $comment->comm_author;
 
         return $item;
+    }
+
+    public function getRss(&$rss, $options = array())
+    {
+        if (!isset($options['item'])) {
+            $rss->set(array(
+                'title' => \Security::html_entity_decode(__('Comments list')),
+                'description' => \Security::html_entity_decode(__('The full list of comments.')),
+            ));
+
+            $comments = \Nos\Comments\Model_Comment::find('all', array(
+                'order_by' => array('comm_created_at' => 'DESC'),
+            ));
+        } else {
+            $item = $options['item'];
+            if (empty($item)) {
+                throw new \Nos\NotFoundException();
+            }
+
+            $rss->set(
+                array(
+                    'title' => \Security::html_entity_decode(strtr(__('{{post}}: Comments list'), array('{{post}}' => $item->title_item()))),
+                    'description' => \Security::html_entity_decode(strtr(__('Comments to the post ‘{{post}}’.'), array('{{post}}' => $item->title_item()))),
+                )
+            );
+
+            $comments = $item->comments;
+        }
+
+        \Nos\Comments\API::addCommentsToRss($rss, $comments);
     }
 }

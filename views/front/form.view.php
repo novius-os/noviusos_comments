@@ -15,7 +15,7 @@ $email = \Cookie::get('comm_email', '');
 $content = "";
 ?>
 <div class="comment_form" id="comment_form">
-    <form class="comment_form" name="TheFormComment" id="TheFormComment" method="post" action="/apps/noviusos_comments/api.php">
+    <form class="comment_form" name="TheFormComment" id="TheFormComment" method="post">
         <input type="hidden" name="model" value="<?= $class ?>" />
         <input type="hidden" name="id" value="<?= $from_item->id ?>" />
         <input type="hidden" name="action" value="addComment" />
