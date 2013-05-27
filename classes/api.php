@@ -19,16 +19,6 @@ class API
         $this->_config = $config_or_model;
     }
 
-    public static function processRequest()
-    {
-        $model = $_REQUEST['model'];
-        \Nos\Controller::overrideCurrentApplication($model::getApplication());
-        $config = static::getConfigurationFromModel($model);
-        $config['model'] = $model;
-        $api = new static($config);
-        $api->execute($_REQUEST);
-    }
-
     public static function getConfigurationFromModel($model)
     {
         if (!isset(static::$_config_per_model[$model])) {
