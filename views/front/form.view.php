@@ -6,7 +6,11 @@ if (!isset($add_comment_success)) {
     $add_comment_success = \Session::get_flash('noviusos_comment::add_comment_success', 'none');
 }
 
-$use_recaptcha = \Arr::get($config, 'use_recaptcha', false);
+$api = new \Nos\Comments\Api($class);
+$api_config = $api->getConfig();
+$use_recaptcha = $api_config['use_recaptcha'];
+$anti_spam_identifier_failed = \Security::htmlspecialchars($api_config['anti_spam_identifier']['failed']);
+$anti_spam_identifier_passed = json_encode($api_config['anti_spam_identifier']['passed']);
 
 Nos\I18n::current_dictionary('noviusos_comments::front');
 
@@ -19,7 +23,7 @@ $content = "";
         <input type="hidden" name="model" value="<?= $class ?>" />
         <input type="hidden" name="id" value="<?= $from_item->id ?>" />
         <input type="hidden" name="action" value="addComment" />
-        <input class="input_mm" type="hidden" id="<?= $uniqid_mm = uniqid('mm_'); ?>" name="ismm" value="214">
+        <input class="input_mm" type="hidden" id="<?= $uniqid_mm = uniqid('mm_'); ?>" name="ismm" value="<?= $anti_spam_identifier_failed ?>">
         <div class="comment_form_title"><?= __('Leave a comment') ?></div>
 <?php
 if (isset($add_comment_success)) {
@@ -77,13 +81,13 @@ if ($use_recaptcha) {
 (function() {
     if (document.addEventListener) {
         document.addEventListener('mousemove', function() {
-            document.getElementById('<?= $uniqid_mm ?>').value = 327;
+            document.getElementById('<?= $uniqid_mm ?>').value = <?= $anti_spam_identifier_passed ?>;
             document.removeEventListener('mousemove', arguments.callee, false);
         }, false);
     } else {
         // Old IE
         document.attachEvent('onmousemove', function() {
-            document.getElementById('<?= $uniqid_mm ?>').value = 327;
+            document.getElementById('<?= $uniqid_mm ?>').value = <?= $anti_spam_identifier_passed ?>;
             document.detachEvent('onmousemove', arguments.callee);
         });
     }

@@ -17,6 +17,18 @@ class API
             $config_or_model['model'] = $model;
         }
         $this->_config = $config_or_model;
+
+        list($application_name, $file_name) = \Config::configFile(get_called_class());
+
+        $this->_config = \Arr::merge(
+            \Config::loadConfiguration($application_name, $file_name),
+            $this->_config
+        );
+    }
+
+    public function getConfig()
+    {
+        return $this->_config;
     }
 
     public static function getConfigurationFromModel($model)
@@ -36,23 +48,9 @@ class API
         $this->{$action.'Action'}($data);
     }
 
-    public function addCommentAction($data)
-    {
-        $ret = $this->addComment($data);
-        \Response::redirect(\Input::referrer());
-    }
-
     public function addComment($data)
     {
-        if (!isset($this->_config['default_state'])) {
-            $this->_config['default_state'] = 'published';
-        }
-
-        if (!isset($this->_config['use_recaptcha'])) {
-            $this->_config['use_recaptcha'] = false;
-        }
-
-        if ($data['ismm'] == '327') {
+        if ($data['ismm'] == $this->_config['anti_spam_identifier']['passed']) {
             if (!$this->_config['use_recaptcha'] || (
                 \Package::load('fuel-recatpcha', APPPATH.'packages/fuel-recaptcha/') &&
                 \ReCaptcha\ReCaptcha::instance()->check_answer(
@@ -94,19 +92,6 @@ class API
         return 'none';
     }
 
-    public static function addCommentsToRss(&$rss, $comments)
-    {
-        $items = array();
-        foreach ($comments as $comment) {
-            $item = static::getRssComment($comment);
-            if (!empty($item)) {
-                $items[] = $item;
-            }
-        }
-
-        $rss->set_items($comments);
-    }
-
     public static function getRssComment($comment)
     {
         $parent_item = $comment->getRelatedItem();
@@ -123,33 +108,44 @@ class API
         return $item;
     }
 
-    public function getRss(&$rss, $options = array())
+    public function getRss($options = array())
     {
-        if (!isset($options['item'])) {
-            $rss->set(array(
-                'title' => \Security::html_entity_decode(__('Comments list')),
-                'description' => \Security::html_entity_decode(__('The full list of comments.')),
-            ));
+        $rss = \Nos\Tools_RSS::forge(array(
+            'link' => \Nos\Nos::main_controller()->getUrl(),
+            'language' => \Nos\Tools_Context::locale(\Nos\Nos::main_controller()->getPage()->page_context),
+        ));
 
-            $comments = \Nos\Comments\Model_Comment::find('all', array(
-                'order_by' => array('comm_created_at' => 'DESC'),
-            ));
-        } else {
+        $find_options = array(
+            'order_by'              => array('comm_created_at' => 'DESC'),
+            'where' => array(
+                'comm_foreign_model' => $options['model'],
+            ),
+            'limit'                 => $this->_config['rss']['model']['nb'],
+        );
+
+        if (isset($options['item'])) {
             $item = $options['item'];
             if (empty($item)) {
                 throw new \Nos\NotFoundException();
             }
 
-            $rss->set(
-                array(
-                    'title' => \Security::html_entity_decode(strtr(__('{{post}}: Comments list'), array('{{post}}' => $item->title_item()))),
-                    'description' => \Security::html_entity_decode(strtr(__('Comments to the post ‘{{post}}’.'), array('{{post}}' => $item->title_item()))),
-                )
-            );
-
-            $comments = $item->comments;
+            $find_options['where']['comm_foreign_id'] = $item->id;
+            $find_options['limit'] = $this->_config['rss']['item']['nb'];
         }
 
-        \Nos\Comments\API::addCommentsToRss($rss, $comments);
+        $comments = \Nos\Comments\Model_Comment::find('all', $find_options);
+
+        $rss_items = array();
+        foreach ($comments as $comment) {
+            $rss_item = $this->getRssComment($comment);
+            if (!empty($comment)) {
+                $rss_items[] = $rss_item;
+            }
+        }
+
+        $rss->set_items($rss_items);
+
+
+        return $rss;
     }
 }
