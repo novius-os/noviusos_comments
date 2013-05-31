@@ -32,6 +32,33 @@ return array(
             },
             'isSafeHtml' => true
         ),
+        'comm_preview_url' => array(
+            'value' => function($item) {
+                $relatedItem = $item->getRelatedItem();
+                $config = \Nos\Config_Common::load(get_class($relatedItem));
+                return $config['placeholders']['controller_base_url'].'insert_update/'.$relatedItem->id;
+            }
+        ),
+        'comm_from' => array(
+            'title' => __('From'),
+            'value' => function ($item) {
+                $relatedItem = $item->getRelatedItem();
+                $model = get_class($relatedItem);
+                return '<img src="'.\Config::icon($model, 16).'" style="vertical-align: middle; margin-right: 3px;"><span>'.e($relatedItem->title).'</span>';
+            },
+            'isSafeHtml' => true,
+            'cellFormatters' => array(
+                'link' => array(
+                    'type' => 'link',
+                    'action' => array(
+                        'action' => 'nosTabs',
+                        'tab' => array(
+                            'url' => '{{comm_preview_url}}',
+                        ),
+                    ),
+                ),
+            ),
+        ),
         'comm_created_at' => array(
             'title' => __('Date'),
             'value' => function ($item) {

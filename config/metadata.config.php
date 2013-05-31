@@ -24,4 +24,15 @@ return array(
         32 => 'static/apps/noviusos_comments/img/comment-32.png',
         64 => 'static/apps/noviusos_comments/img/comment-32.png',
     ),
+    'launchers' => array(
+        'noviusos_comments' => array(
+            'name'    => 'Comments',
+            'action' => array(
+                'action' => 'nosTabs',
+                'tab' => array(
+                    'url' => 'admin/noviusos_comments/comment/appdesk',
+                ),
+            ),
+        ),
+    ),
 );
