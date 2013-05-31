@@ -1,4 +1,16 @@
 <?php
+$class = get_class($from_item);
+$config = \Nos\Comments\API::getConfigurationFromModel($class);
+
+if (!isset($add_comment_success)) {
+    $add_comment_success = \Session::get_flash('noviusos_comment::add_comment_success', 'none');
+}
+
+$api = new \Nos\Comments\Api($class);
+$api_config = $api->getConfig();
+$use_recaptcha = $api_config['use_recaptcha'];
+$anti_spam_identifier_failed = \Security::htmlspecialchars($api_config['anti_spam_identifier']['failed']);
+$anti_spam_identifier_passed = json_encode($api_config['anti_spam_identifier']['passed']);
 
 Nos\I18n::current_dictionary('noviusos_comments::front');
 
@@ -7,16 +19,18 @@ $email = \Cookie::get('comm_email', '');
 $content = "";
 ?>
 <div class="comment_form" id="comment_form">
-    <form class="comment_form" name="TheFormComment" id="TheFormComment" method="post" action="<?= \Nos\Nos::main_controller()->getUrl() ?>#comment_form">
-        <input type="hidden" name="todo" value="add_comment">
-        <input class="input_mm" type="hidden" id="<?= $uniqid_mm = uniqid('mm_'); ?>" name="ismm" value="214">
+    <form class="comment_form" name="TheFormComment" id="TheFormComment" method="post">
+        <input type="hidden" name="model" value="<?= $class ?>" />
+        <input type="hidden" name="id" value="<?= $from_item->id ?>" />
+        <input type="hidden" name="action" value="addComment" />
+        <input class="input_mm" type="hidden" id="<?= $uniqid_mm = uniqid('mm_'); ?>" name="ismm" value="<?= $anti_spam_identifier_failed ?>">
         <div class="comment_form_title"><?= __('Leave a comment') ?></div>
 <?php
 if (isset($add_comment_success)) {
     if ($add_comment_success === false) {
-        $author = \Input::post('comm_author');
-        $email = \Input::post('comm_email');
-        $content = \Input::post('comm_content');
+        $author = \Session::get_flash('noviusos_comment::comm_author');
+        $email = \Session::get_flash('noviusos_comment::comm_email');
+        $content = \Session::get_flash('noviusos_comment::comm_content');
         ?>
             <div class="error">
                 <?= __('You failed the captcha test. Please try again.') ?>
@@ -56,9 +70,8 @@ if (isset($add_comment_success)) {
         </script>
 <?php
 if ($use_recaptcha) {
-    ?>
-        <?= ReCaptcha::instance()->get_html() ?>
-    <?php
+    \Package::load('fuel-recatpcha', APPPATH.'packages/fuel-recaptcha/');
+    echo ReCaptcha::instance()->get_html();
 }
 ?>
         <div class="comment_submit"><input type="submit" value="<?= __('Send') ?>"></div>
@@ -68,13 +81,13 @@ if ($use_recaptcha) {
 (function() {
     if (document.addEventListener) {
         document.addEventListener('mousemove', function() {
-            document.getElementById('<?= $uniqid_mm ?>').value = 327;
+            document.getElementById('<?= $uniqid_mm ?>').value = <?= $anti_spam_identifier_passed ?>;
             document.removeEventListener('mousemove', arguments.callee, false);
         }, false);
     } else {
         // Old IE
         document.attachEvent('onmousemove', function() {
-            document.getElementById('<?= $uniqid_mm ?>').value = 327;
+            document.getElementById('<?= $uniqid_mm ?>').value = <?= $anti_spam_identifier_passed ?>;
             document.detachEvent('onmousemove', arguments.callee);
         });
     }
