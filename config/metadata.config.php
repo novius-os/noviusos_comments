@@ -22,7 +22,7 @@ return array(
     'icons' => array(
         16 => 'static/apps/noviusos_comments/img/comment-16.png',
         32 => 'static/apps/noviusos_comments/img/comment-32.png',
-        64 => 'static/apps/noviusos_comments/img/comment-32.png',
+        64 => 'static/apps/noviusos_comments/img/comment-64.png',
     ),
     'launchers' => array(
         'noviusos_comments' => array(
