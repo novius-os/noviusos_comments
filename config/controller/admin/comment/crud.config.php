@@ -2,6 +2,9 @@
 return array(
     'controller_url'  => 'admin/noviusos_comments/comment/crud',
     'model' => 'Nos\Comments\Model_Comment',
+    'css' => array(
+        'static/apps/noviusos_comments/css/admin.css'
+    ),
     'layout' => array(
         'large' => true,
         'save' => 'save',
