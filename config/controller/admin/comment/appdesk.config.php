@@ -15,6 +15,10 @@ $ret = array(
     )
 );
 
+if (!\Email::hasDefaultFrom()) {
+    $ret['notify'] = 'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.';
+}
+
 if ($item != null) {
     $ret['query']['callback'] = array(function($query) use ($item) {
         $query->where(array(array('comm_foreign_model' => get_class($item), 'comm_foreign_id' => $item->id)));
