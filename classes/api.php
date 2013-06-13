@@ -72,12 +72,18 @@ class API
                 $comm->comm_state = $this->_config['default_state'];
                 $comm->comm_ip = \Input::ip();
 
-                \Event::trigger_function('noviusos_comments|front->_add_comment', array(&$comm, &$item));
+                \Event::trigger_function('noviusos_comments::before_comment', array(&$comm, &$item));
 
                 $comm->save();
 
                 \Cookie::set('comm_email', $data['comm_email']);
                 \Cookie::set('comm_author', $data['comm_author']);
+
+                $this->sendNewCommentToAdministrator($comm, $item);
+                $this->sendNewCommentToCommenters($comm, $item);
+
+                \Event::trigger('noviusos_comments::after_comment', array(&$comm, &$item));
+
                 \Session::set_flash('noviusos_comment::add_comment_success', true);
                 return true;
             } else {
@@ -90,6 +96,39 @@ class API
         }
 
         return 'none';
+    }
+
+    public function sendNewCommentToAdministrator($comment, $item)
+    {
+        $mail = \Email::forge();
+        $mail->to($item->author->user_email);
+        $mail->subject(strtr(__('{{item_title}}: New comment'), array('{{item_title}}' => $item->title)));
+        $mail->html_body(\View::forge('noviusos_comments::email/admin', array('comment' => $comment, 'item' => $item)));
+
+        try {
+            $mail->send();
+        } catch (\Exception $e) {
+            logger(\Fuel::L_ERROR, 'The Comments application cannot send emails - '.$e->getMessage());
+        }
+    }
+
+    public function sendNewCommentToCommenters($comment, $item)
+    {
+        $emails = array();
+        foreach ($item->comments as $comment) {
+            $emails[$comment->comm_email] = $comment->comm_author;
+        }
+
+        $mail = \Email::forge();
+        $mail->bcc($emails);
+        $mail->subject(strtr(__('{{item_title}}: New comment'), array('{{item_title}}' => $item->title)));
+        $mail->html_body(\View::forge('noviusos_comments::email/commenters', array('comment' => $comment, 'item' => $item)));
+
+        try {
+            $mail->send();
+        } catch (\Exception $e) {
+            logger(\Fuel::L_ERROR, 'The Comments application cannot send emails - '.$e->getMessage());
+        }
     }
 
     public static function getRssComment($comment)
