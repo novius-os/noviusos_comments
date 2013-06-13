@@ -14,4 +14,8 @@ return array(
             'nb' => 20,
         ),
     ),
+    'send_email' => array(
+        'to_author' => true,
+        'to_commenters' => true
+    )
 );

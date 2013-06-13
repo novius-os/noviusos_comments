@@ -79,8 +79,13 @@ class API
                 \Cookie::set('comm_email', $data['comm_email']);
                 \Cookie::set('comm_author', $data['comm_author']);
 
-                $this->sendNewCommentToAdministrator($comm, $item);
-                $this->sendNewCommentToCommenters($comm, $item);
+                if ($this->_config['send_email']['to_author']) {
+                    $this->sendNewCommentToAuthor($comm, $item);
+                }
+
+                if ($this->_config['send_email']['to_commenters']) {
+                    $this->sendNewCommentToCommenters($comm, $item);
+                }
 
                 \Event::trigger('noviusos_comments::after_comment', array(&$comm, &$item));
 
@@ -98,7 +103,7 @@ class API
         return 'none';
     }
 
-    public function sendNewCommentToAdministrator($comment, $item)
+    public function sendNewCommentToAuthor($comment, $item)
     {
         $mail = \Email::forge();
         $mail->to($item->author->user_email);

@@ -1,11 +1,15 @@
 <?php
+$model = \Input::get('model', null);
+$id = \Input::get('id', null);
+$item = null;
+
 $states = array(
     'published'     => '<img src="static/novius-os/admin/novius-os/img/icons/status-green.png" />'.__('Published'),
     'pending'       => '<img src="static/novius-os/admin/novius-os/img/icons/status-orange.png" />'.__('Pending'),
     'refused'       => '<img src="static/novius-os/admin/novius-os/img/icons/status-red.png" />'.__('Refused'),
 );
 
-return array(
+$ret = array(
     'controller' => 'comment/crud',
     'data_mapping' => array(
         'comm_content' => array(
@@ -104,3 +108,9 @@ return array(
         ),
     ),
 );
+
+if ($id !== null) {
+    unset($ret['data_mapping']['comm_from']);
+}
+
+return $ret;
