@@ -2,10 +2,6 @@
 $class = get_class($from_item);
 $config = \Nos\Comments\API::getConfigurationFromModel($class);
 
-if (!isset($add_comment_success)) {
-    $add_comment_success = \Session::get_flash('noviusos_comment::add_comment_success', 'none');
-}
-
 $api = new \Nos\Comments\Api($class);
 $api_config = $api->getConfig();
 $use_recaptcha = $api_config['use_recaptcha'];
@@ -13,10 +9,6 @@ $anti_spam_identifier_failed = \Security::htmlspecialchars($api_config['anti_spa
 $anti_spam_identifier_passed = json_encode($api_config['anti_spam_identifier']['passed']);
 
 Nos\I18n::current_dictionary('noviusos_comments::front');
-
-$author =\Cookie::get('comm_author', '');
-$email = \Cookie::get('comm_email', '');
-$content = "";
 ?>
 <div class="comment_form" id="comment_form">
     <form class="comment_form" name="TheFormComment" id="TheFormComment" method="post">
@@ -26,40 +18,23 @@ $content = "";
         <input class="input_mm" type="hidden" id="<?= $uniqid_mm = uniqid('mm_'); ?>" name="ismm" value="<?= $anti_spam_identifier_failed ?>">
         <div class="comment_form_title"><?= __('Leave a comment') ?></div>
 <?php
-if (isset($add_comment_success)) {
-    if ($add_comment_success === false) {
-        $author = \Session::get_flash('noviusos_comment::comm_author');
-        $email = \Session::get_flash('noviusos_comment::comm_email');
-        $content = \Session::get_flash('noviusos_comment::comm_content');
-        ?>
-            <div class="error">
-                <?= __('You failed the captcha test. Please try again.') ?>
-            </div>
-        <?php
-    } elseif ($add_comment_success === true) {
-        ?>
-            <div class="success">
-                <?= __('Your comment has been successfully added.') ?>
-            </div>
-            <?php
-    }
-}
+        \Nos\FrontCache::viewForgeUncached('noviusos_comments::front/add_comment_message')
 ?>
         <table border="0">
             <tbody>
             <tr>
                 <td align="right"><label for="comm_author"><?= __('Name:') ?></label></td>
-                <td><input type="text" style="width:300px;" maxlength="100" id="comm_author" name="comm_author" value="<?= e($author) ?>"></td>
+                <td><input type="text" style="width:300px;" maxlength="100" id="comm_author" name="comm_author" value="<?= \Nos\FrontCache::viewForgeUncached('noviusos_comments::front/author') ?>"></td>
             </tr>
             <tr>
                 <td align="right"><label for="comm_email"><?= __('Email address (never sold, shared nor spammed):') ?></label></td>
-                <td><input type="text" style="width:300px;" maxlength="100" id="comm_email" name="comm_email" value="<?= e($email) ?>"></td>
+                <td><input type="text" style="width:300px;" maxlength="100" id="comm_email" name="comm_email" value="<?= \Nos\FrontCache::viewForgeUncached('noviusos_comments::front/email') ?>"></td>
             </tr>
             <tr>
                 <td colspan="2"><label for="comm_content"><?= __('Your comment:') ?></label></td>
             </tr>
             <tr>
-                <td colspan="2"><textarea style="width:100%;height:200px;" id="comm_content" name="comm_content"><?= e($content) ?></textarea></td>
+                <td colspan="2"><textarea style="width:100%;height:200px;" id="comm_content" name="comm_content"><?= \Nos\FrontCache::viewForgeUncached('noviusos_comments::front/content') ?></textarea></td>
             </tr>
             </tbody>
         </table>
