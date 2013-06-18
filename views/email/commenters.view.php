@@ -1,14 +1,18 @@
 <?php
-$msg = __("Hi,
+$msg = __("Hello,
 
-‘{{item_title}}’ just received a comment. It might be an answer to one of your comments.
+A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.
 
 {{comment}}
 
-Answer: {{visualise_link}}");
+- Reply: {{visualise_link}}
+- Unsubscribe from this discussion: {{unsubscribe_link}}");
+
+$unsubscribe_url = $item->url(array('unsubscribe' => true));
 
 echo strtr($msg, array(
     '{{item_title}}' => $item->title,
     '{{comment}}' => \Str::textToHtml(e($comment->comm_content)),
     '{{visualise_link}}' => $item->url(),
+    '{{unsubscribe_link}}' => $unsubscribe_url.'?email='.urlencode($comment->comm_email)
 ));

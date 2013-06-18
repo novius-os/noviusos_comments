@@ -1,0 +1,1 @@
+ALTER TABLE  `nos_comment` ADD  `comm_subscribed` TINYINT NOT NULL DEFAULT  '1' AFTER  `comm_state`;

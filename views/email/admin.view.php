@@ -1,12 +1,12 @@
 <?php
-$msg = __("Hi,
+$msg = __("Hello,
 
-You just received a comment for ‘{{item_title}}’.
+A new comment has just been posted for ‘{{item_title}}’:
 
 {{comment}}
 
-Answer and visualise: {{visualise_link}}
-Moderation: {{moderation_link}}");
+- Reply: {{visualise_link}}
+- Moderate: {{moderation_link}}");
 
 echo strtr($msg, array(
     '{{item_title}}' => $item->title,

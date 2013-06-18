@@ -61,6 +61,11 @@ class Model_Comment extends \Nos\Orm\Model
             'data_type' => 'enum',
             'null' => false,
         ),
+        'comm_subscribed' => array(
+            'default' => 1,
+            'data_type' => 'tinyint',
+            'null' => false,
+        ),
     );
 
     protected static $_title_property = 'comm_content';
@@ -69,5 +74,19 @@ class Model_Comment extends \Nos\Orm\Model
     {
         $model = $this->comm_foreign_model;
         return $model::find($this->comm_foreign_id);
+    }
+
+    public static function changeSubscriptionStatus($from, $email, $subscribe)
+    {
+        \DB::update(static::$_table_name)
+            ->set(array(
+                'comm_subscribed' => $subscribe ? 1 : 0
+            ))
+            ->where(array(
+                'comm_foreign_model'    => get_class($from),
+                'comm_foreign_id'       => $from->id,
+                'comm_email'            => $email
+            ))
+            ->execute();
     }
 }

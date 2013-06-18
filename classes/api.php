@@ -71,6 +71,7 @@ class API
                 $comm->comm_foreign_id = $data['id'];
                 $comm->comm_state = $this->_config['default_state'];
                 $comm->comm_ip = \Input::ip();
+                $comm->comm_subscribed = isset($data['subscribe_to_comments']) && $data['subscribe_to_comments'];
 
                 \Event::trigger_function('noviusos_comments::before_comment', array(&$comm, &$item));
 
@@ -120,8 +121,10 @@ class API
     public function sendNewCommentToCommenters($comment, $item)
     {
         $emails = array();
-        foreach ($item->comments as $comment) {
-            $emails[$comment->comm_email] = $comment->comm_author;
+        foreach ($item->comments as $comment_item) {
+            if ($comment_item->comm_subscribed && $comment_item->comm_email !== $comment->comm_email) {
+                $emails[$comment_item->comm_email] = $comment_item->comm_author;
+            }
         }
 
         $mail = \Email::forge();
@@ -191,5 +194,10 @@ class API
 
 
         return $rss;
+    }
+
+    public function changeSubscriptionStatus($from, $email, $subscribe)
+    {
+        \Nos\Comments\Model_Comment::changeSubscriptionStatus($from, $email, $subscribe);
     }
 }
