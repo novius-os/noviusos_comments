@@ -17,5 +17,8 @@ return array(
     'send_email' => array(
         'to_author' => true,
         'to_commenters' => true
+    ),
+    'gravatar' => array(
+        'size' => 64
     )
 );
