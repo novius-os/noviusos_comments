@@ -63,14 +63,24 @@ return array(
         ),
         'comm_state' => array(
             'label' => __('Status:'),
-            'form' => array(
-                'type' => 'select',
-                'options' => array(
-                    'published' => __('Published'),
-                    'pending' => __('Pending'),
-                    'refused' => __('Refused')
-                )
-            )
+            'renderer' => '\Nos\Renderer_Buttonset',
+            'renderer_options' => array(
+                'choices' => array(
+                    'refused' => array(
+                        'label' => '<img src="static/novius-os/admin/novius-os/img/icons/status-red.png" />',
+                        'side_label' => __('Refused')
+                    ),
+                    'pending' => array(
+                        'label' => '<img src="static/apps/noviusos_comments/img/status-orange.png" />',
+                        'side_label' => __('Pending')
+                    ),
+                    'published' => array(
+                        'label' => '<img src="static/novius-os/admin/novius-os/img/icons/status-green.png" />',
+                        'side_label' => __('Published')
+                    ),
+                ),
+                'class' => 'flat'
+            ),
         ),
         'comm_content' => array(
             'label' => __('Comment:'),

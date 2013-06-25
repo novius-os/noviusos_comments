@@ -5,7 +5,7 @@ $item = null;
 
 $states = array(
     'published'     => '<img src="static/novius-os/admin/novius-os/img/icons/status-green.png" />'.__('Published'),
-    'pending'       => '<img src="static/novius-os/admin/novius-os/img/icons/status-orange.png" />'.__('Pending'),
+    'pending'       => '<img src="static/apps/noviusos_comments/img/status-orange.png" />'.__('Pending'),
     'refused'       => '<img src="static/novius-os/admin/novius-os/img/icons/status-red.png" />'.__('Refused'),
 );
 

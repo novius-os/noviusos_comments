@@ -16,7 +16,10 @@ $ret = array(
 );
 
 if (!\Email::hasDefaultFrom()) {
-    $ret['notify'] = 'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.';
+    $ret['notify'] = array(
+        'message' => 'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.',
+        'type' => 'error',
+    );
 }
 
 if ($item != null) {
