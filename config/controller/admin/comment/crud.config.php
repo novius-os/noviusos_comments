@@ -63,23 +63,23 @@ return array(
         ),
         'comm_state' => array(
             'label' => __('Status:'),
-            'renderer' => '\Nos\Renderer_Buttonset',
+            'renderer' => '\Nos\Renderer_Radioset',
             'renderer_options' => array(
                 'choices' => array(
                     'refused' => array(
                         'label' => '<img src="static/novius-os/admin/novius-os/img/icons/status-red.png" />',
-                        'side_label' => __('Refused')
+                        'side_label' => __('Refused'),
                     ),
                     'pending' => array(
                         'label' => '<img src="static/apps/noviusos_comments/img/status-orange.png" />',
-                        'side_label' => __('Pending')
+                        'side_label' => __('Pending'),
                     ),
                     'published' => array(
                         'label' => '<img src="static/novius-os/admin/novius-os/img/icons/status-green.png" />',
-                        'side_label' => __('Published')
+                        'side_label' => __('Published'),
                     ),
                 ),
-                'class' => 'flat'
+                'class' => 'flat',
             ),
         ),
         'comm_content' => array(
