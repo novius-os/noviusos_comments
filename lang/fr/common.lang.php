@@ -1,6 +1,6 @@
 <?php
 
-// Generated on 25/06/2013 11:06:52
+// Generated on 05/07/2013 14:57:58
 
 // 0 out of 26 messages are translated (0%).
 // 0 out of 85 words are translated (0%).
@@ -40,26 +40,26 @@ return array(
     #: config/controller/admin/comment/crud.config.php:65
     'Status:' => '',
 
-    #: config/controller/admin/comment/crud.config.php:69
-    #: config/common/comment.config.php:7
-    'Published' => '',
-
-    #: config/controller/admin/comment/crud.config.php:70
-    #: config/common/comment.config.php:8
-    'Pending' => '',
-
     #: config/controller/admin/comment/crud.config.php:71
     #: config/common/comment.config.php:9
     'Refused' => '',
 
-    #: config/controller/admin/comment/crud.config.php:76
+    #: config/controller/admin/comment/crud.config.php:75
+    #: config/common/comment.config.php:8
+    'Pending' => '',
+
+    #: config/controller/admin/comment/crud.config.php:79
+    #: config/common/comment.config.php:7
+    'Published' => '',
+
+    #: config/controller/admin/comment/crud.config.php:86
     'Comment:' => '',
 
     #. Note to translator: This is a submit button
-    #: config/controller/admin/comment/crud.config.php:88
+    #: config/controller/admin/comment/crud.config.php:98
     'Save' => '',
 
-    #: config/controller/admin/comment/appdesk.config.php:28
+    #: config/controller/admin/comment/appdesk.config.php:31
     'Comments for ‘{{title}}’' => '',
 
     #: config/orm/behaviour/commentable.config.php:5
