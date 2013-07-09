@@ -3,7 +3,7 @@ Nos\I18n::current_dictionary('noviusos_comments::front');
 ?>
 <li class="comment" id="comment_<?= $comment->comm_id ?>">
     <div class="comment_image">
-        <img src="<?= htmlspecialchars(\Image::gravatarUrl($comment->comm_email, $api_config['gravatar'])) ?>" width="<?= $api_config['gravatar']['size'] ?>" height="<?= $api_config['gravatar']['size'] ?>">
+        <img src="<?= htmlspecialchars(\Nos\Comments\Gravatar::url($comment->comm_email, $api_config['gravatar'])) ?>" width="<?= $api_config['gravatar']['size'] ?>" height="<?= $api_config['gravatar']['size'] ?>">
     </div>
     <div class="comment_infos">
         <span class="comment_author"><?= e(strtr(__('Comment by {{author}}'), array('{{author}}' => $comment->comm_author))) ?></span>
