@@ -158,7 +158,7 @@ class API
     public function getRss($options = array())
     {
         $rss = \Nos\Tools_RSS::forge(array(
-            'link' => \Nos\Nos::main_controller()->getUrl(),
+            'link' => \Nos\Tools_Url::encodePath(\Nos\Nos::main_controller()->getUrl()),
             'language' => \Nos\Tools_Context::locale(\Nos\Nos::main_controller()->getPage()->page_context),
         ));
 
