@@ -10,6 +10,9 @@ if ($model !== null && $id !== null) {
 $ret = array(
     'model' => 'Nos\Comments\Model_Comment',
     'search_text' => 'comm_content',
+    'i18n' => array(
+        'items' => __('Comments'),
+    ),
     'query' => array(
         'order_by' => array('comm_created_at' => 'DESC'),
     )
@@ -30,9 +33,7 @@ if ($item != null) {
 
     $appdesk_label = strtr(__('Comments for ‘{{title}}’'), array('{{title}}' => $item->title));
 
-    $ret['i18n'] = array(
-        'items' => $appdesk_label,
-    );
+    $ret['i18n']['items'] = $appdesk_label;
 
     $ret['appdesk'] = array(
         'appdesk' => array(
