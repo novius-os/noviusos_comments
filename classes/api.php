@@ -108,6 +108,7 @@ class API
     {
         $mail = \Email::forge();
         $mail->to($item->author->user_email);
+        // Note to translator: This is an email’s subject
         $mail->subject(strtr(__('{{item_title}}: New comment'), array('{{item_title}}' => $item->title)));
         $mail->html_body(\View::forge('noviusos_comments::email/admin', array('comment' => $comment, 'item' => $item)));
 

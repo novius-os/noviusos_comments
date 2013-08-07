@@ -14,7 +14,7 @@ return array(
                         'action' => 'nosTabs',
                         'tab' => array(
                             'url' => 'admin/noviusos_comments/comment/appdesk?model={{_model}}&id={{_id}}',
-                            'label' => __('Comments to ‘{{title}}’'),
+                            'label' => __('Comments for ‘{{title}}’'),
                         ),
                     ),
                 ),
@@ -53,7 +53,7 @@ return array(
                 'action' => 'nosTabs',
                 'tab' => array(
                     'url' => 'admin/noviusos_comments/comment/appdesk?model={{_model}}&id={{_id}}',
-                    'label' => __('Comments to ‘{{title}}’'),
+                    'label' => __('Comments for ‘{{title}}’'),
                 ),
             ),
             'visible' => function($params) {

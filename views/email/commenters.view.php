@@ -1,4 +1,5 @@
 <?php
+// Note to translator: This is an email
 $msg = __("Hello,
 
 A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.
