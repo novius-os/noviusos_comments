@@ -1,4 +1,7 @@
 <?php
+
+\Nos\I18n::current_dictionary('noviusos_comments::common');
+
 return array(
     'data_mapping' => array(
         'comments_count' => array(

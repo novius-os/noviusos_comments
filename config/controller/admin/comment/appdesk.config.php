@@ -1,4 +1,7 @@
 <?php
+
+\Nos\I18n::current_dictionary('noviusos_comments::common');
+
 $model = \Input::get('model', null);
 $id = \Input::get('id', null);
 $item = null;
