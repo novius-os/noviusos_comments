@@ -92,6 +92,9 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
 
     public function count_multiple_comments($items)
     {
+        if (count($items) === 0) {
+            return $items;
+        }
         $class = $this->_class;
         $ids = array();
 
