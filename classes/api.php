@@ -34,7 +34,6 @@ class API
     public static function getConfigurationFromModel($model)
     {
         if (!isset(static::$_config_per_model[$model])) {
-            \Debug::dump($model::behaviours('Nos\Comments\Orm_Behaviour_Commentable', false));
             static::$_config_per_model[$model] = \Arr::get(\Nos\Config_Common::load($model), 'api.'.static::$key, null);
         }
         return static::$_config_per_model[$model];
