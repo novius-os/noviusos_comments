@@ -1,9 +1,9 @@
 <?php
 
-// Generated on 05/07/2013 14:57:58
+// Generated on 09/08/2013 10:16:42
 
-// 9 out of 14 messages are translated (64%).
-// 34 out of 74 words are translated (64%).
+// 14 out of 14 messages are translated (100%).
+// 74 out of 74 words are translated (100%).
 
 return array(
     #: views/front/add_comment_message.view.php:7
@@ -22,7 +22,7 @@ return array(
     'Email address (never sold, shared nor spammed):' => 'Email (jamais vendu, partagé ou spammé)&nbsp;:',
 
     #: views/front/form.view.php:33
-    'Receive new comments by email' => '',
+    'Receive new comments by email' => 'Recevoir les nouveaux commentaires par email',
 
     #: views/front/form.view.php:38
     'Your comment:' => 'Votre commentaire&nbsp;:',
@@ -31,16 +31,16 @@ return array(
     'Send' => 'Envoyer',
 
     #: views/front/subscriptions/unsubscribe.view.php:1
-    'OK, you won’t be notified any longer when new comments are posted.' => '',
+    'OK, you won’t be notified any longer when new comments are posted.' => 'OK, vous ne recevrez plus d’email quand de nouveaux commentaires seront publiés.',
 
     #: views/front/subscriptions/unsubscribe.view.php:3
-    'I miscliked! I want to subscribe again.' => '',
+    'I miscliked! I want to subscribe again.' => 'J’ai changé d’avis ! Je veux m’inscrire de nouveau.',
 
     #: views/front/subscriptions/subscribe.view.php:1
-    'You will now be notified when new comments are posted.' => '',
+    'You will now be notified when new comments are posted.' => 'Vous recevrez désormais un email quand un nouveau commentaire est publié.',
 
     #: views/front/subscriptions/subscribe.view.php:3
-    'Finally, I want to unsubscribe again.' => '',
+    'Finally, I want to unsubscribe again.' => 'Finalement, je veux me désinscrire de nouveau.',
 
     #: views/front/item.view.php:9
     'Comment by {{author}}' => 'Commentaire par {{author}}',

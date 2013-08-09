@@ -1,94 +1,91 @@
 <?php
 
-// Generated on 05/07/2013 14:57:58
+// Generated on 09/08/2013 10:16:42
 
-// 0 out of 26 messages are translated (0%).
-// 0 out of 85 words are translated (0%).
+// 25 out of 25 messages are translated (100%).
+// 82 out of 82 words are translated (100%).
 
 return array(
     #: classes/api.php:111
     #: classes/api.php:132
-    '{{item_title}}: New comment' => '',
+    '{{item_title}}: New comment' => '{{item_title}} : Nouveau commentaire',
 
     #: classes/api.php:149
-    'Comment to the post ‘{{post}}’.' => '',
+    'Comment to the post ‘{{post}}’.' => 'Commentaire du billlet «&nbsp;{{post}}&nbsp;».',
 
     #: views/email/admin.view.php:2
-    'Hello,\n\nA new comment has just been posted for ‘{{item_title}}’:\n\n{{comment}}\n\n- Reply: {{visualise_link}}\n- Moderate: {{moderation_link}}' => '',
+    'Hello,\n\nA new comment has just been posted for ‘{{item_title}}’:\n\n{{comment}}\n\n- Reply: {{visualise_link}}\n- Moderate: {{moderation_link}}' => 'Bonjour,\n\nUn nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;»&nbsp;:\n\n{{comment}}\n\n- Répondre&nbsp;: {{visualise_link}}\n- Modérer&nbsp;: {{moderation_link}}',
 
     #: views/email/commenters.view.php:2
-    'Hello,\n\nA new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.\n\n{{comment}}\n\n- Reply: {{visualise_link}}\n- Unsubscribe from this discussion: {{unsubscribe_link}}' => '',
+    'Hello,\n\nA new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.\n\n{{comment}}\n\n- Reply: {{visualise_link}}\n- Unsubscribe from this discussion: {{unsubscribe_link}}' => 'Bonjour,\n\nUn nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;». Il s’agit peut-être d\'une réponse à votre commentaire.\n\n{{comment}}\n\n- Répondre&nbsp;: {{visualise_link}}\n- Ne plus suivre cette discussion&nbsp;: {{unsubscribe_link}}',
 
     #: views/admin/crud_title.php:2
-    'Comment for ‘{{title}}’' => '',
+    'Comment for ‘{{title}}’' => 'Commentaire pour «&nbsp;{{title}}&nbsp;»',
 
     #: config/controller/admin/comment/crud.config.php:18
-    'Comment properties' => '',
+    'Comment properties' => 'Propriétés du commentaire',
 
     #: config/controller/admin/comment/crud.config.php:44
-    'Author:' => '',
+    'Author:' => 'Auteur&nbsp;:',
 
     #: config/controller/admin/comment/crud.config.php:50
-    'Author’s IP address:' => '',
+    'Author’s IP address:' => 'Adresse IP de l’auteur&nbsp;:',
 
     #: config/controller/admin/comment/crud.config.php:55
-    'Email address:' => '',
+    'Email address:' => 'Adresse email&nbsp;:',
 
     #: config/controller/admin/comment/crud.config.php:61
-    'Sent on:' => '',
+    'Sent on:' => 'Envoyé le&nbsp;:',
 
     #: config/controller/admin/comment/crud.config.php:65
-    'Status:' => '',
+    'Status:' => 'État&nbsp;:',
 
     #: config/controller/admin/comment/crud.config.php:71
     #: config/common/comment.config.php:9
-    'Refused' => '',
+    'Refused' => 'Refusé',
 
     #: config/controller/admin/comment/crud.config.php:75
     #: config/common/comment.config.php:8
-    'Pending' => '',
+    'Pending' => 'En attente',
 
     #: config/controller/admin/comment/crud.config.php:79
     #: config/common/comment.config.php:7
-    'Published' => '',
+    'Published' => 'Publié',
 
     #: config/controller/admin/comment/crud.config.php:86
-    'Comment:' => '',
+    'Comment:' => 'Commentaire&nbsp;:',
 
     #. Note to translator: This is a submit button
     #: config/controller/admin/comment/crud.config.php:98
-    'Save' => '',
+    'Save' => 'Enregistrer',
 
-    #: config/controller/admin/comment/appdesk.config.php:31
-    'Comments for ‘{{title}}’' => '',
-
+    #: config/controller/admin/comment/appdesk.config.php:14
     #: config/orm/behaviour/commentable.config.php:5
     #: config/orm/behaviour/commentable.config.php:46
-    'Comments' => '',
+    'Comments' => 'Commentaires',
 
-    #: config/orm/behaviour/commentable.config.php:17
-    #: config/orm/behaviour/commentable.config.php:56
-    'Comments to ‘{{title}}’' => '',
+    #: config/controller/admin/comment/appdesk.config.php:34
+    'Comments for ‘{{title}}’' => 'Commentaires pour «&nbsp;{{title}}&nbsp;»',
 
     #: config/orm/behaviour/commentable.config.php:71
-    'This item has no comments.' => '',
+    'This item has no comments.' => 'Cet item n’a pas de commentaire.',
 
     #: config/common/comment.config.php:16
-    'Comment' => '',
+    'Comment' => 'Commentaire',
 
     #: config/common/comment.config.php:28
-    'Posted for' => '',
+    'Posted for' => 'Publié pour',
 
     #: config/common/comment.config.php:48
-    'Email address' => '',
+    'Email address' => 'Adresse email',
 
     #: config/common/comment.config.php:51
-    'Status' => '',
+    'Status' => 'État',
 
     #: config/common/comment.config.php:67
-    'Date' => '',
+    'Date' => 'Date',
 
     #: config/common/comment.config.php:85
-    'Visualise' => '',
+    'Visualise' => 'Visualiser',
 
 );
