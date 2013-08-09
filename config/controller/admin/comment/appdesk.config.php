@@ -14,7 +14,12 @@ $ret = array(
     'model' => 'Nos\Comments\Model_Comment',
     'search_text' => 'comm_content',
     'i18n' => array(
-        'items' => __('Comments'),
+        'item' => __('comment'),
+        'items' => __('comments'),
+        'showNbItems' => __('Showing {{x}} comments out of {{y}}'),
+        'showOneItem' => __('Showing 1 coment'),
+        'showNoItem' => __('No comments'),
+        'showAll' => __('Showing all comments'),
     ),
     'query' => array(
         'order_by' => array('comm_created_at' => 'DESC'),
@@ -23,7 +28,7 @@ $ret = array(
 
 if (!\Email::hasDefaultFrom()) {
     $ret['notify'] = array(
-        'message' => 'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.',
+        'message' => __('You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.'),
         'type' => 'error',
     );
 }
