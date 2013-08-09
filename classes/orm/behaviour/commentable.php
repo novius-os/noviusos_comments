@@ -35,4 +35,23 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
         }
     }
 
+
+    protected $nb_comments = null;
+    public function count_comments(\Nos\Orm\Model $item)
+    {
+        if ($this->nb_comments === null) {
+            $this->nb_comments = \Nos\Comments\Model_Comment::count(
+                array(
+                    'where' => array(
+                        array('comm_foreign_id' => $item->id),
+                        array('comm_foreign_model' => $this->_class),
+                        array('comm_state' => 'published'),
+                    )
+                )
+            );
+        }
+
+        return $this->nb_comments;
+    }
+
 }
