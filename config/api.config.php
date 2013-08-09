@@ -1,4 +1,5 @@
 <?php
+
 return array(
     'default_state' => 'published',
     'use_recaptcha' => false,

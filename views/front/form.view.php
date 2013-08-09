@@ -1,4 +1,7 @@
 <?php
+
+\Nos\I18n::current_dictionary('noviusos_comments::common');
+
 $class = get_class($from_item);
 $config = \Nos\Comments\API::getConfigurationFromModel($class);
 

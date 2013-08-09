@@ -88,4 +88,12 @@ return array(
     #: config/common/comment.config.php:85
     'Visualise' => 'Visualiser',
 
+    'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.' => 'Il y a un souci&nbsp;: Votre Novius OS n’est pas configuré pour envoyer des emails. Demandez à votre développeur de le configurer.',
+
+    'comment' => 'commentaire',
+    'comments' => 'commentaires',
+    'Showing {{x}} comments out of {{y}}' => '{{x}} commentaires sur {{y}} affichées',
+    'Showing 1 comment' => '1 commentaire affiché',
+    'No comments' => 'Pas de commentaire',
+    'Showing all comments' => 'Afficher tous les commentaires',
 );

@@ -1,4 +1,7 @@
 <?php
+
+\Nos\I18n::current_dictionary('noviusos_comments::common');
+
 return array(
     'controller_url'  => 'admin/noviusos_comments/comment/crud',
     'model' => 'Nos\Comments\Model_Comment',
