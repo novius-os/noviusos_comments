@@ -128,19 +128,25 @@ class API
             }
         }
 
-        if (empty($emails)) {
-            return;
-        }
+        $error = '';
+        foreach ($emails as $email => $author) {
+            $mail = \Email::forge();
+            $mail->to($email, $author);
+            $mail->subject(strtr(__('{{item_title}}: New comment'), array('{{item_title}}' => $item->title)));
+            $mail->html_body(\View::forge('noviusos_comments::email/commenters', array(
+                'comment' => $comment,
+                'item' => $item,
+                'email' => $email,
+            )));
 
-        $mail = \Email::forge();
-        $mail->bcc($emails);
-        $mail->subject(strtr(__('{{item_title}}: New comment'), array('{{item_title}}' => $item->title)));
-        $mail->html_body(\View::forge('noviusos_comments::email/commenters', array('comment' => $comment, 'item' => $item)));
-
-        try {
-            $mail->send();
-        } catch (\Exception $e) {
-            logger(\Fuel::L_ERROR, 'The Comments application cannot send emails - '.$e->getMessage());
+            try {
+                $mail->send();
+            } catch (\Exception $e) {
+                if ($error !== $e->getMessage()) {
+                    $error = $e->getMessage();
+                    logger(\Fuel::L_ERROR, 'The Comments application cannot send emails - '.$error);
+                }
+            }
         }
     }
 

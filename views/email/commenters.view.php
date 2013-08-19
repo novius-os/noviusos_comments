@@ -18,5 +18,5 @@ echo nl2br(strtr($msg, array(
     '{{item_title}}' => e($item->title),
     '{{comment}}' => \Str::textToHtml(e($comment->comm_content)),
     '{{visualise_link}}' => \Nos\Tools_Url::encodePath($item->url()),
-    '{{unsubscribe_link}}' => $unsubscribe_url.'?email='.urlencode($comment->comm_email)
+    '{{unsubscribe_link}}' => $unsubscribe_url.'?email='.urlencode($email)
 )));
