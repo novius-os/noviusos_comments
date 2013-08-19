@@ -1,23 +1,26 @@
 <?php
 
-// Generated on 09/08/2013 10:16:42
+// Generated on 19/08/2013 18:12:14
 
 // 25 out of 25 messages are translated (100%).
 // 82 out of 82 words are translated (100%).
 
 return array(
-    #: classes/api.php:111
-    #: classes/api.php:132
+    #. Note to translator: This is an email’s subject
+    #: classes/api.php:112
+    #: classes/api.php:133
     '{{item_title}}: New comment' => '{{item_title}} : Nouveau commentaire',
 
-    #: classes/api.php:149
+    #: classes/api.php:150
     'Comment to the post ‘{{post}}’.' => 'Commentaire du billlet «&nbsp;{{post}}&nbsp;».',
 
-    #: views/email/admin.view.php:2
-    'Hello,\n\nA new comment has just been posted for ‘{{item_title}}’:\n\n{{comment}}\n\n- Reply: {{visualise_link}}\n- Moderate: {{moderation_link}}' => 'Bonjour,\n\nUn nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;»&nbsp;:\n\n{{comment}}\n\n- Répondre&nbsp;: {{visualise_link}}\n- Modérer&nbsp;: {{moderation_link}}',
+    #. Note to translator: This is an email
+    #: views/email/admin.view.php:3
+    'Hello,'."\n".''."\n".'A new comment has just been posted for ‘{{item_title}}’:'."\n".''."\n".'{{comment}}'."\n".''."\n".'- Reply: {{visualise_link}}'."\n".'- Moderate: {{moderation_link}}' => 'Bonjour,'."\n".''."\n".'Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;»&nbsp;:'."\n".''."\n".'{{comment}}'."\n".''."\n".'- Répondre&nbsp;: {{visualise_link}}'."\n".'- Modérer&nbsp;: {{moderation_link}}',
 
-    #: views/email/commenters.view.php:2
-    'Hello,\n\nA new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.\n\n{{comment}}\n\n- Reply: {{visualise_link}}\n- Unsubscribe from this discussion: {{unsubscribe_link}}' => 'Bonjour,\n\nUn nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;». Il s’agit peut-être d\'une réponse à votre commentaire.\n\n{{comment}}\n\n- Répondre&nbsp;: {{visualise_link}}\n- Ne plus suivre cette discussion&nbsp;: {{unsubscribe_link}}',
+    #. Note to translator: This is an email
+    #: views/email/commenters.view.php:3
+    'Hello,'."\n".''."\n".'A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.'."\n".''."\n".'{{comment}}'."\n".''."\n".'- Reply: {{visualise_link}}'."\n".'- Unsubscribe from this discussion: {{unsubscribe_link}}' => 'Bonjour,'."\n".''."\n".'Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;». Il s’agit peut-être d\'une réponse à votre commentaire.'."\n".''."\n".'{{comment}}'."\n".''."\n".'- Répondre&nbsp;: {{visualise_link}}'."\n".'- Ne plus suivre cette discussion&nbsp;: {{unsubscribe_link}}',
 
     #: views/admin/crud_title.php:2
     'Comment for ‘{{title}}’' => 'Commentaire pour «&nbsp;{{title}}&nbsp;»',
@@ -65,6 +68,8 @@ return array(
     'Comments' => 'Commentaires',
 
     #: config/controller/admin/comment/appdesk.config.php:34
+    #: config/orm/behaviour/commentable.config.php:17
+    #: config/orm/behaviour/commentable.config.php:56
     'Comments for ‘{{title}}’' => 'Commentaires pour «&nbsp;{{title}}&nbsp;»',
 
     #: config/orm/behaviour/commentable.config.php:71
@@ -88,12 +93,4 @@ return array(
     #: config/common/comment.config.php:85
     'Visualise' => 'Visualiser',
 
-    'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.' => 'Il y a un souci&nbsp;: Votre Novius OS n’est pas configuré pour envoyer des emails. Demandez à votre développeur de le configurer.',
-
-    'comment' => 'commentaire',
-    'comments' => 'commentaires',
-    'Showing {{x}} comments out of {{y}}' => '{{x}} commentaires sur {{y}} affichées',
-    'Showing 1 comment' => '1 commentaire affiché',
-    'No comments' => 'Pas de commentaire',
-    'Showing all comments' => 'Afficher tous les commentaires',
 );

@@ -1,23 +1,26 @@
 <?php
 
-// Generated on 05/07/2013 14:57:58
+// Generated on 19/08/2013 18:12:14
 
-// 0 out of 26 messages are translated (0%).
-// 0 out of 85 words are translated (0%).
+// 0 out of 25 messages are translated (0%).
+// 0 out of 82 words are translated (0%).
 
 return array(
-    #: classes/api.php:111
-    #: classes/api.php:132
+    #. Note to translator: This is an email’s subject
+    #: classes/api.php:112
+    #: classes/api.php:133
     '{{item_title}}: New comment' => '',
 
-    #: classes/api.php:149
+    #: classes/api.php:150
     'Comment to the post ‘{{post}}’.' => '',
 
-    #: views/email/admin.view.php:2
-    'Hello,\n\nA new comment has just been posted for ‘{{item_title}}’:\n\n{{comment}}\n\n- Reply: {{visualise_link}}\n- Moderate: {{moderation_link}}' => '',
+    #. Note to translator: This is an email
+    #: views/email/admin.view.php:3
+    'Hello,'."\n".''."\n".'A new comment has just been posted for ‘{{item_title}}’:'."\n".''."\n".'{{comment}}'."\n".''."\n".'- Reply: {{visualise_link}}'."\n".'- Moderate: {{moderation_link}}' => '',
 
-    #: views/email/commenters.view.php:2
-    'Hello,\n\nA new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.\n\n{{comment}}\n\n- Reply: {{visualise_link}}\n- Unsubscribe from this discussion: {{unsubscribe_link}}' => '',
+    #. Note to translator: This is an email
+    #: views/email/commenters.view.php:3
+    'Hello,'."\n".''."\n".'A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.'."\n".''."\n".'{{comment}}'."\n".''."\n".'- Reply: {{visualise_link}}'."\n".'- Unsubscribe from this discussion: {{unsubscribe_link}}' => '',
 
     #: views/admin/crud_title.php:2
     'Comment for ‘{{title}}’' => '',
@@ -59,16 +62,15 @@ return array(
     #: config/controller/admin/comment/crud.config.php:98
     'Save' => '',
 
-    #: config/controller/admin/comment/appdesk.config.php:31
-    'Comments for ‘{{title}}’' => '',
-
+    #: config/controller/admin/comment/appdesk.config.php:14
     #: config/orm/behaviour/commentable.config.php:5
     #: config/orm/behaviour/commentable.config.php:46
     'Comments' => '',
 
+    #: config/controller/admin/comment/appdesk.config.php:34
     #: config/orm/behaviour/commentable.config.php:17
     #: config/orm/behaviour/commentable.config.php:56
-    'Comments to ‘{{title}}’' => '',
+    'Comments for ‘{{title}}’' => '',
 
     #: config/orm/behaviour/commentable.config.php:71
     'This item has no comments.' => '',
