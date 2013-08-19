@@ -128,6 +128,10 @@ class API
             }
         }
 
+        if (empty($emails)) {
+            return;
+        }
+
         $mail = \Email::forge();
         $mail->bcc($emails);
         $mail->subject(strtr(__('{{item_title}}: New comment'), array('{{item_title}}' => $item->title)));
