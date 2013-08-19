@@ -12,9 +12,12 @@ A new comment has just been posted for ‘{{item_title}}’:
 - Reply: {{visualise_link}}
 - Moderate: {{moderation_link}}");
 
+$visualise_url = \Nos\Tools_Url::encodePath($item->url());
+$moderation_url = \Uri::base().'admin?tab='.urlencode('admin/noviusos_comments/comment/crud/insert_update/'.$comment->id);
+
 echo nl2br(strtr($msg, array(
     '{{item_title}}' => e($item->title),
     '{{comment}}' => \Str::textToHtml(e($comment->comm_content)),
-    '{{visualise_link}}' => \Nos\Tools_Url::encodePath($item->url()),
-    '{{moderation_link}}' => \Uri::base().'admin?tab='.urlencode('admin/noviusos_comments/comment/crud/insert_update/'.$comment->id),
+    '{{visualise_link}}' => '<a href="'.$visualise_url.'">'.$visualise_url.'</a>',
+    '{{moderation_link}}' => '<a href="'.$moderation_url.'">'.$moderation_url.'</a>',
 )));

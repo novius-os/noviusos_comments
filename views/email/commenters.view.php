@@ -12,11 +12,12 @@ A new comment has just been posted for ‘{{item_title}}’. It might be a reply
 - Reply: {{visualise_link}}
 - Unsubscribe from this discussion: {{unsubscribe_link}}");
 
-$unsubscribe_url = \Nos\Tools_Url::encodePath($item->url(array('unsubscribe' => true)));
+$visualise_url = \Nos\Tools_Url::encodePath($item->url());
+$unsubscribe_url = \Nos\Tools_Url::encodePath($item->url(array('unsubscribe' => true))).'?email='.urlencode($email);
 
 echo nl2br(strtr($msg, array(
     '{{item_title}}' => e($item->title),
     '{{comment}}' => \Str::textToHtml(e($comment->comm_content)),
-    '{{visualise_link}}' => \Nos\Tools_Url::encodePath($item->url()),
-    '{{unsubscribe_link}}' => $unsubscribe_url.'?email='.urlencode($email)
+    '{{visualise_link}}' => '<a href="'.$visualise_url.'">'.$visualise_url.'</a>',
+    '{{unsubscribe_link}}' => '<a href="'.$unsubscribe_url.'">'.$unsubscribe_url.'</a>',
 )));
