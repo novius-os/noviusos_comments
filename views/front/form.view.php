@@ -3,10 +3,8 @@
 \Nos\I18n::current_dictionary('noviusos_comments::common');
 
 $class = get_class($from_item);
-$config = \Nos\Comments\API::getConfigurationFromModel($class);
 
-$api = new \Nos\Comments\Api($class);
-$api_config = $api->getConfig();
+$api_config = $from_item::commentApi()->getConfig();
 $use_recaptcha = $api_config['use_recaptcha'];
 $anti_spam_identifier_failed = \Security::htmlspecialchars($api_config['anti_spam_identifier']['failed']);
 $anti_spam_identifier_passed = json_encode($api_config['anti_spam_identifier']['passed']);

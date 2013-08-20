@@ -23,6 +23,8 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
      */
     protected $_properties = array();
 
+    protected $_api;
+
     public function __construct($class)
     {
         parent::__construct($class);
@@ -65,6 +67,16 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
         return $this->_properties;
     }
 
+    public function commentApi()
+    {
+        if (empty($this->_api)) {
+            list($application_name) = \Config::configFile($this->_class);
+            \Config::load($application_name.'::comment', true);
+            $config = \Config::get($application_name.'::comment', array());
+            $this->_api = API::forge($config);
+        }
+        return $this->_api;
+    }
 
     protected $nb_comments = array();
     public function count_comments(\Nos\Orm\Model $item)
