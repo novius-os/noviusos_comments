@@ -68,12 +68,38 @@ class Model_Comment extends \Nos\Orm\Model
         ),
     );
 
+    protected static $_observers = array(
+        'Orm\Observer_Self',
+    );
+
     protected static $_title_property = 'comm_content';
 
     public function getRelatedItem()
     {
         $model = $this->comm_foreign_model;
         return $model::find($this->comm_foreign_id);
+    }
+
+    public function deleteCacheItem()
+    {
+        try {
+            $this->getRelatedItem()->deleteCacheItem();
+        } catch (\Exception $e) {
+            // Item doesn't have the behaviour Urlenhancer, nothing to do
+        }
+    }
+
+    public function _event_before_save()
+    {
+        parent::_event_before_save();
+        if ($this->is_changed('comm_state') || $this->is_new()) {
+            $this->deleteCacheItem();
+        }
+    }
+
+    public function _event_after_delete()
+    {
+        $this->deleteCacheItem();
     }
 
     public static function changeSubscriptionStatus($from, $email, $subscribe)
