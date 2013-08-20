@@ -70,10 +70,15 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
     public function commentApi()
     {
         if (empty($this->_api)) {
-            list($application_name) = \Config::configFile($this->_class);
+            list($application_name, $file_name) = \Config::configFile($this->_class);
             \Config::load($application_name.'::comment', true);
-            $config = \Config::get($application_name.'::comment', array());
-            $this->_api = API::forge($config);
+            $config_app = \Config::get($application_name.'::comment', array());
+
+            $config_name = $application_name.'::comment/'.substr($file_name, strrpos($file_name, DS) + 1);
+            \Config::load($config_name, true);
+            $config_class = \Config::get($config_name, array());
+
+            $this->_api = API::forge(\Arr::merge($config_app, $config_class));
         }
         return $this->_api;
     }
