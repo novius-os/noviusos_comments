@@ -82,10 +82,13 @@ class Model_Comment extends \Nos\Orm\Model
 
     public function deleteCacheItem()
     {
-        try {
-            $this->getRelatedItem()->deleteCacheItem();
-        } catch (\Exception $e) {
-            // Item doesn't have the behaviour Urlenhancer, nothing to do
+        $relatedItem = $this->getRelatedItem();
+        if (!empty($relatedItem)) {
+            try {
+                $relatedItem->deleteCacheItem();
+            } catch (\Exception $e) {
+                // Item doesn't have the behaviour Urlenhancer, nothing to do
+            }
         }
     }
 

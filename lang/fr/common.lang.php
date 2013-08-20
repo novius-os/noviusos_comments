@@ -55,6 +55,9 @@ return array(
     #: config/common/comment.config.php:7
     'Published' => 'Publié',
 
+    #: config/common/comment.config.php:20
+    'Comment' => 'Commentaire',
+
     #: config/controller/admin/comment/crud.config.php:86
     'Comment:' => 'Commentaire&nbsp;:',
 
@@ -62,7 +65,6 @@ return array(
     #: config/controller/admin/comment/crud.config.php:98
     'Save' => 'Enregistrer',
 
-    #: config/controller/admin/comment/appdesk.config.php:14
     #: config/orm/behaviour/commentable.config.php:5
     #: config/orm/behaviour/commentable.config.php:46
     'Comments' => 'Commentaires',
@@ -75,8 +77,11 @@ return array(
     #: config/orm/behaviour/commentable.config.php:71
     'This item has no comments.' => 'Cet item n’a pas de commentaire.',
 
+    #: config/controller/admin/comment/appdesk.config.php:14
+    'comments' => 'commentaires',
+
     #: config/common/comment.config.php:16
-    'Comment' => 'Commentaire',
+    'comment' => 'commentaire',
 
     #: config/common/comment.config.php:28
     'Posted for' => 'Publié pour',
