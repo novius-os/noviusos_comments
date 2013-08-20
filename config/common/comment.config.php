@@ -1,6 +1,6 @@
 <?php
 
-\Nos\I18n::current_dictionary(array('noviusos_comments::common', 'nos::common'));
+\Nos\I18n::current_dictionary('noviusos_comments::common');
 
 
 $model = \Input::get('model', null);
@@ -50,7 +50,7 @@ $ret = array(
                 if (!empty($relatedItem)) {
                     return $relatedItem->title_item();
                 }
-                return __('The item has been deleted.');
+                return __('Deleted content');
             },
             'cellFormatters' => array(
                 'link' => array(
