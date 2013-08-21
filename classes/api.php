@@ -80,13 +80,8 @@ class API
                 \Cookie::set('comm_email', $data['comm_email']);
                 \Cookie::set('comm_author', $data['comm_author']);
 
-                if ($this->_config['send_email']['to_author']) {
-                    $this->sendNewCommentToAuthor($comm, $item);
-                }
-
-                if ($this->_config['send_email']['to_commenters']) {
-                    $this->sendNewCommentToCommenters($comm, $item);
-                }
+                $this->sendNewCommentToAuthor($comm, $item);
+                $this->sendNewCommentToCommenters($comm, $item);
 
                 \Event::trigger('noviusos_comments::after_comment', array(&$comm, &$item));
 
@@ -106,6 +101,13 @@ class API
 
     public function sendNewCommentToAuthor($comment, $item)
     {
+        if (!$this->_config['send_email']['to_author']) {
+            return;
+        }
+        if ($comment->comm_state != 'published') {
+            return;
+        }
+
         $mail = \Email::forge();
         $mail->to($item->author->user_email);
         // Note to translator: This is an email’s subject
@@ -119,8 +121,21 @@ class API
         }
     }
 
+    /**
+     * Will only send emails when configured to do it.
+     *
+     * @param  $comment Model_Comment
+     * @param  $item \Nos\Orm\Model
+     */
     public function sendNewCommentToCommenters($comment, $item)
     {
+        if (!$this->_config['send_email']['to_commenters']) {
+            return;
+        }
+        if ($comment->comm_state != 'published') {
+            return;
+        }
+
         $emails = array();
         foreach ($item->comments as $comment_item) {
             if ($comment_item->comm_subscribed && $comment_item->comm_email !== $comment->comm_email) {

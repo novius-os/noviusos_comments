@@ -46,7 +46,7 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
 
         $class::addRelation('has_many', 'comments', array(
             'key_from' => $pk,
-            'model_to' => '\Nos\Comments\Model_Comment',
+            'model_to' => 'Nos\Comments\Model_Comment',
             'key_to' => 'comm_foreign_id',
             'cascade_save' => false,
             'cascade_delete' => true,
