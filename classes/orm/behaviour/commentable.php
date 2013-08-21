@@ -70,14 +70,12 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
     public function commentApi()
     {
         if (empty($this->_api)) {
-            \Config::load('noviusos_comments::api', true);
-
             $context = \Nos\Nos::main_controller()->getContext();
-
+            $config = \Config::load('noviusos_comments::api', true);
             $config = \Arr::merge(
-                \Config::get('noviusos_comments::api.default', array()),
-                \Config::get('noviusos_comments::api.setups.'.$context, array()),
-                \Config::get('noviusos_comments::api.setups.'.$this->_class, array())
+                \Arr::get($config, 'default', array()),
+                \Arr::get($config, 'setups.'.$context, array()),
+                \Arr::get($config, 'setups.'.$this->_class, array())
             );
             $config['model'] = $this->_class;
 
