@@ -48,4 +48,8 @@ return array(
     #: views/front/item.view.php:10
     '%d/%m/%Y at %H:%M' => '%d/%m/%Y à %H:%M',
 
+    #. Note to translator: This is an email
+    #: views/email/commenters.view.php:3
+    'Hello,'."\n".''."\n".'A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.'."\n".''."\n".'{{comment}}'."\n".''."\n".'- Reply: {{visualise_link}}'."\n".'- Unsubscribe from this discussion: {{unsubscribe_link}}' => 'Bonjour,'."\n".''."\n".'Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;». Il s’agit peut-être d\'une réponse à votre commentaire.'."\n".''."\n".'{{comment}}'."\n".''."\n".'- Répondre&nbsp;: {{visualise_link}}'."\n".'- Ne plus suivre cette discussion&nbsp;: {{unsubscribe_link}}',
+
 );

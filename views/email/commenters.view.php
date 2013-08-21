@@ -1,6 +1,6 @@
 <?php
 
-\Nos\I18n::current_dictionary('noviusos_comments::common');
+\Nos\I18n::current_dictionary('noviusos_comments::front');
 
 // Note to translator: This is an email
 $msg = __("Hello,

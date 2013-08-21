@@ -79,17 +79,27 @@ class API
         if (!$this->_config['send_email']['to_author']) {
             return;
         }
-        if ($comment->comm_state != 'published') {
+
+        $parent_item = $comment->getRelatedItem();
+        try {
+            $author = $parent_item->created_by;
+        } catch (\Exception $e) {
+            // No Behaviour_Author
             return;
         }
 
-        $parent_item = $comment->getRelatedItem();
+        // Retrieve strings in the lang of the author
+        \Nos\I18n::setLocale($author->user_lang);
+        $dictionary = \Nos\I18n::dictionary('noviusos_comments::common');
 
         $mail = \Email::forge();
-        $mail->to($parent_item->author->user_email);
+        $mail->to($author->user_email);
         // Note to translator: This is an email’s subject
-        $mail->subject(strtr(__('{{item_title}}: New comment'), array('{{item_title}}' => $parent_item->title_item())));
+        $mail->subject(strtr($dictionary('{{item_title}}: New comment'), array('{{item_title}}' => $parent_item->title_item())));
         $mail->html_body(\View::forge('noviusos_comments::email/admin', array('comment' => $comment, 'item' => $parent_item)));
+
+        // Restore the locale for the connected user
+        \Nos\I18n::restoreLocale($author->user_lang);
 
         try {
             $mail->send();
