@@ -21,6 +21,11 @@ class Model_Comment extends \Nos\Orm\Model
             'data_type' => 'int unsigned',
             'null' => false,
         ),
+        'comm_context' => array(
+            'default' => null,
+            'data_type' => 'varchar',
+            'null' => false,
+        ),
         'comm_foreign_model' => array(
             'default' => null,
             'data_type' => 'varchar',
@@ -65,6 +70,12 @@ class Model_Comment extends \Nos\Orm\Model
             'default' => 1,
             'data_type' => 'tinyint',
             'null' => false,
+        ),
+    );
+
+    protected static $_behaviours = array(
+        'Nos\Orm_Behaviour_Contextable' => array(
+            'context_property'      => 'comm_context',
         ),
     );
 
