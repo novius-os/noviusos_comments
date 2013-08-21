@@ -17,24 +17,7 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
         \Nos\I18n::current_dictionary('noviusos_comments::common');
     }
 
-    /**
-     * show_states
-     */
-    protected $_properties = array();
-
     protected $_api;
-
-    public function __construct($class)
-    {
-        parent::__construct($class);
-
-        if (!isset($this->_properties['show_states'])) {
-            $this->_properties['show_states'] = array('published');
-        }
-        if (!is_array($this->_properties['show_states'])) {
-            $this->_properties['show_states'] = array($this->_properties['show_states']);
-        }
-    }
 
     /**
      * Add relations for linked media and wysiwyg shared with other context
@@ -54,16 +37,11 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
             'conditions' => array(
                 'where' => array(
                     array('comm_foreign_model', '=', $class),
-                    array('comm_state', 'IN', $this->_properties['show_states']),
+                    array('comm_state', '=', 'published'),
                 ),
                 'order_by' => array('comm_created_at' => 'ASC')
             ),
         ));
-    }
-
-    public function getProperties()
-    {
-        return $this->_properties;
     }
 
     public function commentApi($context = null)
@@ -96,7 +74,6 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
                         'where' => array(
                             array('comm_foreign_id' => $item->id),
                             array('comm_foreign_model' => $this->_class),
-                            array('comm_state', 'IN', $this->_properties['show_states']),
                         )
                     )
                 )
@@ -126,7 +103,7 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
             ->from(\Nos\Comments\Model_Comment::table())
             ->where('comm_foreign_id', 'in', $ids)
             ->and_where('comm_foreign_model', '=', $class)
-            ->and_where('comm_state', 'IN', $this->_properties['show_states'])
+            ->and_where('comm_state', '=', 'published')
             ->group_by('comm_foreign_id')
             ->execute()->as_array();
 
