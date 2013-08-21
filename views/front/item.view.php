@@ -1,4 +1,6 @@
 <?php
+$api_config = $from_item::commentApi()->getConfig();
+
 Nos\I18n::current_dictionary('noviusos_comments::front');
 ?>
 <li class="comment" id="comment_<?= $comment->comm_id ?>">

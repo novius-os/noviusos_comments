@@ -3,49 +3,24 @@ namespace Nos\Comments;
 
 class API
 {
-    protected static $key = 'comments';
-
-    public static $_config_per_model = array();
     protected $_config;
 
-    public function __construct($config_or_model)
+    public static function forge(array $config = array())
     {
-        if (strpos($config_or_model, '::') === false) {
-            $model = $config_or_model;
+        return new static($config);
+    }
 
-            $config_or_model = static::getConfigurationFromModel($model);
-            $config_or_model['model'] = $model;
-        }
-        $this->_config = $config_or_model;
-
-        list($application_name, $file_name) = \Config::configFile(get_called_class());
-
+    public function __construct(array $config = array())
+    {
         $this->_config = \Arr::merge(
-            \Config::loadConfiguration($application_name, $file_name),
-            $this->_config
+            \Config::load('noviusos_comments::api', true),
+            $config
         );
     }
 
     public function getConfig()
     {
         return $this->_config;
-    }
-
-    public static function getConfigurationFromModel($model)
-    {
-        if (!isset(static::$_config_per_model[$model])) {
-            static::$_config_per_model[$model] = \Arr::get(\Nos\Config_Common::load($model), 'api.'.static::$key, null);
-        }
-        return static::$_config_per_model[$model];
-    }
-
-    public function execute($data)
-    {
-        $action = $data['action'];
-        if (substr($action, 0, 1) === '_') {
-            throw new \Exception('Invalid API method!');
-        }
-        $this->{$action.'Action'}($data);
     }
 
     public function addComment($data)
