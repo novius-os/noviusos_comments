@@ -52,6 +52,8 @@ if ($item != null) {
         'tab' => array(
             'label' => $appdesk_label,
             'iconUrl' => \Config::icon('noviusos_comments', 16),
+            'iconSize' => 16,
+            'labelDisplay' => true,
         )
     );
 

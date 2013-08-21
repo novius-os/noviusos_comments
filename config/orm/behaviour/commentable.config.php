@@ -56,7 +56,10 @@ return array(
                 'action' => 'nosTabs',
                 'tab' => array(
                     'url' => 'admin/noviusos_comments/comment/appdesk?model={{_model}}&id={{_id}}',
-                    'label' => __('Comments for ‘{{title}}’'),
+                    'label' => strtr(__('Comments for ‘{{title}}’'), array(
+                        '{{title}}' => '{{_title}}',
+                    )),
+                    'iconUrl' => \Config::icon('noviusos_comments', 16),
                 ),
             ),
             'visible' => function($params) {
