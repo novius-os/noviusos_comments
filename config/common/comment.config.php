@@ -28,23 +28,46 @@ $ret = array(
                 ),
             ),
         ),
+        'item_deleted' => array(
+            'value' => function($item) {
+                $relatedItem = $item->getRelatedItem();
+                return empty($relatedItem) ? '1' : '0';
+            },
+        ),
+        'item_icon' => array(
+            'value' => function($item) {
+                $relatedItem = $item->getRelatedItem();
+                if (!empty($relatedItem)) {
+                    $model = get_class($relatedItem);
+                    return \Config::icon($model, 16);
+                }
+            }
+        ),
         'comm_from' => array(
             'title' => __('Posted for'),
             'value' => function ($item) {
                 $relatedItem = $item->getRelatedItem();
-                $model = get_class($relatedItem);
-                return '<img src="'.\Config::icon($model, 16).'" style="vertical-align: middle; margin-right: 3px;"><span>'.e($relatedItem->title).'</span>';
+                if (!empty($relatedItem)) {
+                    return $relatedItem->title_item();
+                }
+                return __('Deleted content');
             },
-            'isSafeHtml' => true,
             'cellFormatters' => array(
                 'link' => array(
+                    'ignore' => '{{item_deleted}}',
                     'type' => 'link',
                     'action' => array(
                         'action' => 'nosTabs',
                         'tab' => array(
-                            'url' => '{{comm_preview_url}}',
+                            'url' => '{{item_preview_url}}',
                         ),
                     ),
+                ),
+                'icon' => array(
+                    'ignore' => '{{item_deleted}}',
+                    'type' => 'icon',
+                    'column' => 'item_icon',
+                    'size' => 16,
                 ),
             ),
         ),
@@ -60,11 +83,13 @@ $ret = array(
             },
             'isSafeHtml' => true
         ),
-        'comm_preview_url' => array(
+        'item_preview_url' => array(
             'value' => function($item) {
                 $relatedItem = $item->getRelatedItem();
-                $config = \Nos\Config_Common::load(get_class($relatedItem));
-                return $config['placeholders']['controller_base_url'].'insert_update/'.$relatedItem->id;
+                if (!empty($relatedItem)) {
+                    $config = \Nos\Config_Common::load(get_class($relatedItem));
+                    return $config['placeholders']['controller_base_url'].'insert_update/'.$relatedItem->id;
+                }
             }
         ),
         'comm_created_at' => array(
@@ -77,10 +102,26 @@ $ret = array(
         ),
         'preview_url' => array(
             'value' => function($item) {
-                $url = $item->getRelatedItem()->preview_url().'#comment_'.$item->comm_id;
-                return $url;
+                $relatedItem = $item->getRelatedItem();
+                if (!empty($relatedItem)) {
+                    return $relatedItem->preview_url().'#comment_'.$item->comm_id;
+                }
             },
         )
+    ),
+    'i18n' => array(
+        // Crud
+        'notification item deleted' => __('The comment has been deleted.'),
+
+        // General errors
+        'notification item does not exist anymore' => __('This comment doesn’t exist any more. It has been deleted.'),
+        'notification item not found' => __('We cannot find this comment.'),
+
+        // Deletion popup
+        'deleting item title' => __('Deleting the comment ‘{{title}}’'),
+
+        # Delete action's labels
+        'deleting button 1 item' => __('Yes, delete this comment'),
     ),
     'actions' => array(
         'list' => array(
@@ -96,8 +137,11 @@ $ret = array(
                 'disabled' => array(
                     function($item, $params)
                     {
-                        $url = $item->getRelatedItem()->preview_url();
-                        return $url == null;
+                        $relatedItem = $item->getRelatedItem();
+                        if (!empty($relatedItem)) {
+                            return $item->getRelatedItem()->preview_url();
+                        }
+                        return true;
                     }),
                 'targets' => array(
                     'grid' => true,

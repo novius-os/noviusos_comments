@@ -17,13 +17,13 @@ $ret = array(
         'item' => __('comment'),
         'items' => __('comments'),
         'showNbItems' => __('Showing {{x}} comments out of {{y}}'),
-        'showOneItem' => __('Showing 1 coment'),
+        'showOneItem' => __('Showing 1 comment'),
         'showNoItem' => __('No comments'),
         'showAll' => __('Showing all comments'),
     ),
     'query' => array(
         'order_by' => array('comm_created_at' => 'DESC'),
-    )
+    ),
 );
 
 if (!\Email::hasDefaultFrom()) {
