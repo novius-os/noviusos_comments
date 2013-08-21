@@ -5,17 +5,12 @@
 return array(
     'controller_url'  => 'admin/noviusos_comments/comment/crud',
     'model' => 'Nos\Comments\Model_Comment',
-    'css' => array(
-        'static/apps/noviusos_comments/css/admin.css'
-    ),
     'layout' => array(
         'large' => true,
         'save' => 'save',
+        'title' => array('html_title'),
         'content' => array(
-            'title' => array(
-                'view' => 'noviusos_comments::admin/crud_title',
-            ),
-            'test' => array(
+            'properties' => array(
                 'view' => 'nos::form/expander',
                 'params' => array(
                     'title'   => __('Comment properties'),
@@ -40,6 +35,14 @@ return array(
             'label' => 'ID: ',
             'form' => array(
                 'type' => 'hidden',
+            ),
+            'dont_save' => true,
+        ),
+        'html_title' => array(
+            'label' => '',
+            'renderer' => 'Nos\Renderer_Text',
+            'form' => array(
+                'value' => '<h1 class="title comment_title">'.__('Comment for ‘{{title}}’').'</h1>',
             ),
             'dont_save' => true,
         ),
@@ -103,5 +106,5 @@ return array(
                 'data-icon' => 'check',
             ),
         ),
-    )
+    ),
 );

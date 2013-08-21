@@ -18,8 +18,7 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
     }
 
     /**
-     * parent_relation
-     * children_relation
+     * show_states
      */
     protected $_properties = array();
 
@@ -51,7 +50,7 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
             'model_to' => 'Nos\Comments\Model_Comment',
             'key_to' => 'comm_foreign_id',
             'cascade_save' => false,
-            'cascade_delete' => true,
+            'cascade_delete' => false,
             'conditions' => array(
                 'where' => array(
                     array('comm_foreign_model', '=', $class),
@@ -67,24 +66,27 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
         return $this->_properties;
     }
 
-    public function commentApi()
+    public function commentApi($context = null)
     {
         if (empty($this->_api)) {
-            $context = \Nos\Nos::main_controller()->getContext();
+            if ($context === null) {
+                $context = \Nos\Nos::main_controller()->getContext();
+            }
             $config = \Config::load('noviusos_comments::api', true);
-            $config = \Arr::merge(
-                \Arr::get($config, 'default', array()),
-                \Arr::get($config, 'setups.'.$context, array()),
-                \Arr::get($config, 'setups.'.$this->_class, array())
-            );
-            $config['model'] = $this->_class;
+            $api_config = \Arr::get($config, 'default', array());
+            if (!empty($context)) {
+                $api_config = \Arr::merge($api_config, \Arr::get($config, 'setups.'.$context, array()));
+            }
+            $api_config = \Arr::merge($api_config, \Arr::get($config, 'setups.'.$this->_class, array()));
+            $api_config['model'] = $this->_class;
 
-            $this->_api = API::forge($config);
+            $this->_api = API::forge($api_config);
         }
         return $this->_api;
     }
 
     protected $nb_comments = array();
+
     public function count_comments(\Nos\Orm\Model $item)
     {
         if (!isset($this->nb_comments[$item->id])) {

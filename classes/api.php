@@ -181,6 +181,7 @@ class API
             'order_by'              => array('comm_created_at' => 'DESC'),
             'where' => array(
                 'comm_foreign_model' => $options['model'],
+                'comm_state' => 'published',
             ),
             'limit'                 => $this->_config['rss']['model']['nb'],
         );
