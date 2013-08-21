@@ -20,7 +20,7 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
     protected $_api;
 
     /**
-     * Add relations for linked media and wysiwyg shared with other context
+     * Add relations for comments
      */
     public function buildRelations()
     {
@@ -40,6 +40,19 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
                     array('comm_state', '=', 'published'),
                 ),
                 'order_by' => array('comm_created_at' => 'ASC')
+            ),
+        ));
+
+        $class::addRelation('has_many', 'comments_cascade_delete', array(
+            'key_from' => $pk,
+            'model_to' => 'Nos\Comments\Model_Comment',
+            'key_to' => 'comm_foreign_id',
+            'cascade_save' => false,
+            'cascade_delete' => true,
+            'conditions' => array(
+                'where' => array(
+                    array('comm_foreign_model', '=', $class),
+                ),
             ),
         ));
     }

@@ -87,6 +87,11 @@ class Model_Comment extends \Nos\Orm\Model
 
     public function getRelatedItem()
     {
+        if (empty($this->comm_foreign_id)) {
+            // When deleting the related item, the cascade_save will put this field to null. When this happens, this
+            // mean we don't need to delete the cache here, because it's already done from the related item.
+            return;
+        }
         $model = $this->comm_foreign_model;
         return $model::find($this->comm_foreign_id);
     }
