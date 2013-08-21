@@ -79,6 +79,7 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
                 \Config::get('noviusos_comments::api.setups.'.$context, array()),
                 \Config::get('noviusos_comments::api.setups.'.$this->_class, array())
             );
+            $config['model'] = $this->_class;
 
             $this->_api = API::forge($config);
         }
