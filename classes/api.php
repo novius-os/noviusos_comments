@@ -38,7 +38,7 @@ class API
                 $model = $this->_config['model'];
                 $item = $model::find($data['id']);
                 $comm = new Model_Comment();
-                $comm->comm_foreign_model = $this->_config['model'];
+                $comm->comm_foreign_model = $model;
                 $comm->comm_email = $data['comm_email'];
                 $comm->comm_author = $data['comm_author'];
                 $comm->comm_content = $data['comm_content'];
@@ -55,8 +55,8 @@ class API
                 \Cookie::set('comm_email', $data['comm_email']);
                 \Cookie::set('comm_author', $data['comm_author']);
 
-                $this->sendNewCommentToAuthor($comm, $item);
-                $this->sendNewCommentToCommenters($comm, $item);
+                $this->sendNewCommentToAuthor($comm);
+                $this->sendNewCommentToCommenters($comm);
 
                 \Event::trigger('noviusos_comments::after_comment', array(&$comm, &$item));
 
@@ -74,7 +74,7 @@ class API
         return 'none';
     }
 
-    public function sendNewCommentToAuthor($comment, $item)
+    public function sendNewCommentToAuthor($comment)
     {
         if (!$this->_config['send_email']['to_author']) {
             return;
@@ -83,11 +83,13 @@ class API
             return;
         }
 
+        $parent_item = $comment->getRelatedItem();
+
         $mail = \Email::forge();
-        $mail->to($item->author->user_email);
+        $mail->to($parent_item->author->user_email);
         // Note to translator: This is an email’s subject
-        $mail->subject(strtr(__('{{item_title}}: New comment'), array('{{item_title}}' => $item->title)));
-        $mail->html_body(\View::forge('noviusos_comments::email/admin', array('comment' => $comment, 'item' => $item)));
+        $mail->subject(strtr(__('{{item_title}}: New comment'), array('{{item_title}}' => $parent_item->title_item())));
+        $mail->html_body(\View::forge('noviusos_comments::email/admin', array('comment' => $comment, 'item' => $parent_item)));
 
         try {
             $mail->send();
@@ -102,7 +104,7 @@ class API
      * @param  $comment Model_Comment
      * @param  $item \Nos\Orm\Model
      */
-    public function sendNewCommentToCommenters($comment, $item)
+    public function sendNewCommentToCommenters($comment)
     {
         if (!$this->_config['send_email']['to_commenters']) {
             return;
@@ -110,9 +112,10 @@ class API
         if ($comment->comm_state != 'published') {
             return;
         }
+        $parent_item = $comment->getRelatedItem();
 
         $emails = array();
-        foreach ($item->comments as $comment_item) {
+        foreach ($parent_item->comments as $comment_item) {
             if ($comment_item->comm_subscribed && $comment_item->comm_email !== $comment->comm_email) {
                 $emails[$comment_item->comm_email] = $comment_item->comm_author;
             }
@@ -122,10 +125,10 @@ class API
         foreach ($emails as $email => $author) {
             $mail = \Email::forge();
             $mail->to($email, $author);
-            $mail->subject(strtr(__('{{item_title}}: New comment'), array('{{item_title}}' => $item->title)));
+            $mail->subject(strtr(__('{{item_title}}: New comment'), array('{{item_title}}' => $parent_item->title_item())));
             $mail->html_body(\View::forge('noviusos_comments::email/commenters', array(
                 'comment' => $comment,
-                'item' => $item,
+                'item' => $parent_item,
                 'email' => $email,
             )));
 
