@@ -41,14 +41,4 @@ class Controller_Admin_Comment_Crud extends \Nos\Controller_Admin_Crud
         }
         return $fields;
     }
-
-    public function get_tab_params()
-    {
-        $tab = parent::get_tab_params();
-        $relatedItem = $this->item->getRelatedItem();
-        $tab['label'] = strtr(__('Comment for ‘{{title}}’'), array(
-            '{{title}}' => !empty($relatedItem) ? $relatedItem->title_item() : __('Deleted content'),
-        ));
-        return $tab;
-    }
 }
