@@ -61,7 +61,7 @@ class API
 
                 \Event::trigger('noviusos_comments::after_comment', array(&$comm, &$item));
 
-                \Session::set_flash('noviusos_comment::add_comment_success', true);
+                \Session::set_flash('noviusos_comment::add_comment_success', $this->_config['default_state'] == 'pending' ? 2 : 1);
                 return true;
             } else {
                 \Session::set_flash('noviusos_comment::add_comment_success', false);
