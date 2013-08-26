@@ -8,4 +8,6 @@
 return array(
     'Comments (required for both Blog and News stories)' => 'Commentaires (nécessaire pour Blog ou Actualités)',
 
+    'Comments' => 'Commentaires',
+
 );
