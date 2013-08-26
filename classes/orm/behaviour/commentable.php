@@ -87,6 +87,7 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
                         'where' => array(
                             array('comm_foreign_id' => $item->id),
                             array('comm_foreign_model' => $this->_class),
+                            array('comm_state', '=', 'published'),
                         )
                     )
                 )
