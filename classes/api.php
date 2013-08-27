@@ -75,7 +75,7 @@ class API
         return 'none';
     }
 
-    public function sendNewCommentToAuthor($comment)
+    public function sendNewCommentToAuthor(Model_Comment $comment)
     {
         if (!$this->_config['send_email']['to_author']) {
             return;
@@ -115,7 +115,7 @@ class API
      * @param  $comment Model_Comment
      * @param  $item \Nos\Orm\Model
      */
-    public function sendNewCommentToCommenters($comment)
+    public function sendNewCommentToCommenters(Model_Comment $comment)
     {
         if (!$this->_config['send_email']['to_commenters']) {
             return;
@@ -172,9 +172,10 @@ class API
 
     public function getRss($options = array())
     {
+        $context = \Nos\Nos::main_controller()->getPage()->page_context;
         $rss = \Nos\Tools_RSS::forge(array(
             'link' => \Nos\Tools_Url::encodePath(\Nos\Nos::main_controller()->getUrl()),
-            'language' => \Nos\Tools_Context::locale(\Nos\Nos::main_controller()->getPage()->page_context),
+            'language' => \Nos\Tools_Context::locale($context),
         ));
 
         $find_options = array(
@@ -182,6 +183,7 @@ class API
             'where' => array(
                 'comm_foreign_model' => $options['model'],
                 'comm_state' => 'published',
+                'comm_context' => $context,
             ),
             'limit'                 => $this->_config['rss']['model']['nb'],
         );
