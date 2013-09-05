@@ -54,10 +54,6 @@ return array(
     #: config/controller/admin/comment/crud.config.php:86
     'Comment:' => '',
 
-    #. Note to translator: This is a submit button
-    #: config/controller/admin/comment/crud.config.php:98
-    'Save' => '',
-
     #: config/controller/admin/comment/appdesk.config.php:14
     #: config/orm/behaviour/commentable.config.php:5
     #: config/orm/behaviour/commentable.config.php:46

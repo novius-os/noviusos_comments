@@ -7,7 +7,6 @@ return array(
     'model' => 'Nos\Comments\Model_Comment',
     'layout' => array(
         'large' => true,
-        'save' => 'save',
         'title' => array('html_title'),
         'content' => array(
             'properties' => array(
@@ -103,17 +102,6 @@ return array(
             'form' => array(
                 'type' => 'textarea',
                 'rows' => 15
-            ),
-        ),
-        'save' => array(
-            'label' => '',
-            'form' => array(
-                'type' => 'submit',
-                'tag' => 'button',
-                // Note to translator: This is a submit button
-                'value' => __('Save'),
-                'class' => 'ui-priority-primary',
-                'data-icon' => 'check',
             ),
         ),
     ),
