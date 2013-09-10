@@ -77,6 +77,7 @@ class Model_Comment extends \Nos\Orm\Model
         'Nos\Orm_Behaviour_Contextable' => array(
             'context_property'      => 'comm_context',
         ),
+        'Nos\Comments\Orm_Behaviour_Cachemanager' => array(),
     );
 
     protected static $_observers = array(
@@ -94,31 +95,6 @@ class Model_Comment extends \Nos\Orm\Model
         }
         $model = $this->comm_foreign_model;
         return $model::find($this->comm_foreign_id);
-    }
-
-    public function deleteCacheItem()
-    {
-        $relatedItem = $this->getRelatedItem();
-        if (!empty($relatedItem)) {
-            try {
-                $relatedItem->deleteCacheItem();
-            } catch (\Exception $e) {
-                // Item doesn't have the behaviour Urlenhancer, nothing to do
-            }
-        }
-    }
-
-    public function _event_before_save()
-    {
-        parent::_event_before_save();
-        if ($this->is_changed('comm_state') || $this->is_new()) {
-            $this->deleteCacheItem();
-        }
-    }
-
-    public function _event_after_delete()
-    {
-        $this->deleteCacheItem();
     }
 
     public static function changeSubscriptionStatus($from, $email, $subscribe)
