@@ -29,11 +29,7 @@ class Orm_Behaviour_Cachemanager extends \Nos\Orm_Behaviour
     {
         $relatedItem = $item->getRelatedItem();
         if (!empty($relatedItem)) {
-            try {
-                $relatedItem->event('deleteCacheComments');
-            } catch (\Exception $e) {
-                // Item doesn't have the behaviour Urlenhancer, nothing to do
-            }
+            $relatedItem->event('deleteCacheComments');
         }
     }
 
