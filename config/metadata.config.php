@@ -10,7 +10,7 @@
 
 return array(
     'name'    => 'Comments',
-    'version' => 'chiba.2',
+    'version' => 'chiba.2.1',
     'provider' => array(
         'name' => 'NoviusOS',
     ),
