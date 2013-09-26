@@ -133,5 +133,4 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
 
         return $items;
     }
-
 }

@@ -18,7 +18,7 @@ $ret = array(
     'data_mapping' => array(
         'comm_content' => array(
             'title' => __('Comment'),
-            'value' => function($item) {
+            'value' => function ($item) {
                 return Str::truncate($item->comm_content, 80);
             },
             'cellFormatters' => array(
@@ -29,13 +29,13 @@ $ret = array(
             ),
         ),
         'item_deleted' => array(
-            'value' => function($item) {
+            'value' => function ($item) {
                 $relatedItem = $item->getRelatedItem();
                 return empty($relatedItem) ? '1' : '0';
             },
         ),
         'item_icon' => array(
-            'value' => function($item) {
+            'value' => function ($item) {
                 $relatedItem = $item->getRelatedItem();
                 if (!empty($relatedItem)) {
                     $model = get_class($relatedItem);
@@ -77,14 +77,13 @@ $ret = array(
         'comm_state' => array(
             'title' => __('Status'),
             'value' =>
-            function ($item) use ($states)
-            {
+            function ($item) use ($states) {
                 return $states[$item->comm_state];
             },
             'isSafeHtml' => true
         ),
         'item_preview_url' => array(
-            'value' => function($item) {
+            'value' => function ($item) {
                 $relatedItem = $item->getRelatedItem();
                 if (!empty($relatedItem)) {
                     $config = \Nos\Config_Common::load(get_class($relatedItem));
@@ -101,7 +100,7 @@ $ret = array(
             'dataFormatString' => 'f',
         ),
         'preview_url' => array(
-            'value' => function($item) {
+            'value' => function ($item) {
                 $relatedItem = $item->getRelatedItem();
                 if (!empty($relatedItem)) {
                     return $relatedItem->preview_url().'#comment_'.$item->comm_id;
@@ -135,8 +134,7 @@ $ret = array(
                     'url' => '{{preview_url}}',
                 ),
                 'disabled' => array(
-                    function($item, $params)
-                    {
+                    function ($item, $params) {
                         $relatedItem = $item->getRelatedItem();
                         if (!empty($relatedItem)) {
                             return $item->getRelatedItem()->preview_url();

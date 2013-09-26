@@ -3,7 +3,7 @@ namespace Nos\Comments;
 
 class Gravatar
 {
-    static public function url($email, array $options = array())
+    public static function url($email, array $options = array())
     {
         $params = \Arr::merge(
             array(

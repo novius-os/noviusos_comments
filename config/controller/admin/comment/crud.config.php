@@ -31,7 +31,7 @@ return array(
     ),
     'tab' => array(
         'labels' => array(
-            'update' => function($item) {
+            'update' => function ($item) {
                 $relatedItem = $item->getRelatedItem();
                 return strtr(__('Comment for ‘{{title}}’'), array(
                     '{{title}}' => !empty($relatedItem) ? $relatedItem->title_item() : __('Deleted content'),

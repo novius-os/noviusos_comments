@@ -34,7 +34,7 @@ if (!\Email::hasDefaultFrom()) {
 }
 
 if ($item != null) {
-    $ret['query']['callback'] = array(function($query) use ($item) {
+    $ret['query']['callback'] = array(function ($query) use ($item) {
         $query->where(array(array('comm_foreign_model' => get_class($item), 'comm_foreign_id' => $item->id)));
         return $query;
     });

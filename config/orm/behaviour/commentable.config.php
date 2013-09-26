@@ -22,14 +22,14 @@ return array(
                     ),
                 ),
             ),
-            'value' => function($item) {
+            'value' => function ($item) {
                 return $item->is_new() ? 0 : \Nos\Comments\Model_Comment::count(
                     array(
                         'where' => array(array('comm_foreign_model' => get_class($item),'comm_foreign_id' => $item->id)),
                     )
                 );
             },
-            'sorting_callback' => function(&$query, $sortDirection) {
+            'sorting_callback' => function (&$query, $sortDirection) {
                 $model = $query->model();
                 $comments_relation = call_user_func($model . '::relations', $this->_properties['comments_relation']);
                 $prefix = $model::prefix();
@@ -62,11 +62,11 @@ return array(
                     'iconUrl' => \Config::icon('noviusos_comments', 16),
                 ),
             ),
-            'visible' => function($params) {
+            'visible' => function ($params) {
                 return !isset($params['item']) || !$params['item']->is_new();
             },
             'disabled' =>
-            function($item) {
+            function ($item) {
                 return ($item->is_new() || !\Nos\Comments\Model_Comment::count(array(
                     'where' => array(
                         array(

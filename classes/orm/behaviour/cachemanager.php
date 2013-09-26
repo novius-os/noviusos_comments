@@ -32,5 +32,4 @@ class Orm_Behaviour_Cachemanager extends \Nos\Orm_Behaviour
             $relatedItem->event('deleteCacheComments');
         }
     }
-
 }
