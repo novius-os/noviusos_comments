@@ -1,11 +1,13 @@
 <?php
 
-// Generated on 19/08/2013 18:12:14
+// Generated on 07/11/2013 15:24:52
 
-// 0 out of 1 messages are translated (0%).
-// 0 out of 8 words are translated (0%).
+// 2 out of 2 messages are translated (100%).
+// 9 out of 9 words are translated (100%).
 
 return array(
     'Comments (required for both Blog and News stories)' => '',
+
+    'Comments' => '',
 
 );
