@@ -16,8 +16,14 @@ $ret = array(
     'i18n' => array(
         'item' => __('comment'),
         'items' => __('comments'),
-        'showNbItems' => __('Showing {{x}} comments out of {{y}}'),
-        'showOneItem' => __('Showing 1 comment'),
+        'NItems' => n__(
+            '1 comment',
+            '{{count}} comments'
+        ),
+        'showNbItems' => n__(
+            'Showing 1 comment out of {{y}}',
+            'Showing {{x}} comments out of {{y}}'
+        ),
         'showNoItem' => __('No comments'),
         'showAll' => __('Showing all comments'),
     ),

@@ -120,7 +120,10 @@ $ret = array(
         'deleting item title' => __('Deleting the comment ‘{{title}}’'),
 
         # Delete action's labels
-        'deleting button 1 item' => __('Yes, delete this comment'),
+        'deleting button N items' => n__(
+            'Yes, delete this comment',
+            'Yes, delete these {{count}} comments'
+        ),
     ),
     'actions' => array(
         'list' => array(
