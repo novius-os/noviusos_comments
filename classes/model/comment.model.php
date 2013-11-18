@@ -86,6 +86,11 @@ class Model_Comment extends \Nos\Orm\Model
 
     protected static $_title_property = 'comm_content';
 
+    /**
+     * Retrieves the instance of the related item model, if it exists.
+     *
+     * @return \Orm\Model|\Orm\Model
+     */
     public function getRelatedItem()
     {
         if (empty($this->comm_foreign_id)) {
@@ -97,6 +102,13 @@ class Model_Comment extends \Nos\Orm\Model
         return $model::find($this->comm_foreign_id);
     }
 
+    /**
+     * Changes the user subscription status to new comments on an item.
+     *
+     * @param \Nos\Orm\Model $from Related item
+     * @param string $email The user's email address
+     * @param boolean $subscribe false to disable the subscription, true to enabled it
+     */
     public static function changeSubscriptionStatus($from, $email, $subscribe)
     {
         \DB::update(static::$_table_name)

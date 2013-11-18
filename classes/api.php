@@ -10,6 +10,9 @@ class API
         return new static($config);
     }
 
+    /**
+     * @param array $config API configuration
+     */
     public function __construct(array $config = array())
     {
         $this->_config = \Arr::merge(
@@ -18,11 +21,21 @@ class API
         );
     }
 
+    /**
+     * @return $config the API configuration
+     */
     public function getConfig()
     {
         return $this->_config;
     }
 
+    /**
+     * Adds a comment to an item from datas sent from a comment's form.
+     *
+     * @param $data comment's form data
+     * @return bool|string "none" if nothing was done, true if the comment was
+     * successfully added, false otherwise.
+     */
     public function addComment($data)
     {
         if ($data['ismm'] == $this->_config['anti_spam_identifier']['passed']) {
@@ -75,6 +88,11 @@ class API
         return 'none';
     }
 
+    /**
+     * Sends new comment notification to the author. Will only send emails when configured to do it.
+     *
+     * @param Model_Comment $comment the new comment
+     */
     public function sendNewCommentToAuthor(Model_Comment $comment)
     {
         if (!$this->_config['send_email']['to_author']) {
@@ -110,7 +128,7 @@ class API
     }
 
     /**
-     * Will only send emails when configured to do it.
+     * Sends new comment notification to the commenters. Will only send emails when configured to do it.
      *
      * @param  $comment Model_Comment
      * @param  $item \Nos\Orm\Model
@@ -154,6 +172,12 @@ class API
         }
     }
 
+    /**
+     * Get an rss item for a comment
+     *
+     * @param $comment
+     * @return array|null a comment item if it is related to an item
+     */
     public static function getRssComment($comment)
     {
         $parent_item = $comment->getRelatedItem();
@@ -170,6 +194,11 @@ class API
         return $item;
     }
 
+    /**
+     * @param array $options options how to get rss items (model and optionally item)
+     * @return \Nos\Tools_RSS rss feed
+     * @throws \Nos\NotFoundException if item was not found
+     */
     public function getRss($options = array())
     {
         $context = \Nos\Nos::main_controller()->getPage()->page_context;
@@ -214,6 +243,13 @@ class API
         return $rss;
     }
 
+    /**
+     * Change an user subscription status to comments related to an item
+     *
+     * @param $from Item from
+     * @param $email Email of the user
+     * @param $subscribe
+     */
     public function changeSubscriptionStatus($from, $email, $subscribe)
     {
         \Nos\Comments\Model_Comment::changeSubscriptionStatus($from, $email, $subscribe);

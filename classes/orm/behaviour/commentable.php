@@ -57,6 +57,12 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
         ));
     }
 
+    /**
+     * Return an instance of the comment's API class in order to allow custom processing.
+     *
+     * @param null|string $context set context for the comment Api
+     * @return \Nos\Comments\Api An instance of Nos\Comments\Api, configured for this item.
+     */
     public function commentApi($context = null)
     {
         if (empty($this->_api)) {
@@ -78,6 +84,12 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
 
     protected $nb_comments = array();
 
+    /**
+     * Returns and caches the number of comments related to one item
+     *
+     * @param \Nos\Orm\Model $item
+     * @return integer number of comments
+     */
     public function count_comments(\Nos\Orm\Model $item)
     {
         if (!isset($this->nb_comments[$item->id])) {
@@ -96,11 +108,23 @@ class Orm_Behaviour_Commentable extends \Nos\Orm_Behaviour
         return $this->nb_comments[$item->id];
     }
 
+    /**
+     * Allow to enter a custom cached number of comments related to the item. Can be useful when
+     * adding or removing a comment for instance.
+     *
+     * @param \Nos\Orm\Model $item
+     * @param $nb number of comments
+     */
     public function setNbComments(\Nos\Orm\Model $item, $nb)
     {
         $this->nb_comments[$item->id] = $nb;
     }
 
+    /*
+     * From a items' list, retrieve the number of comments in an optimal way.
+     *
+     * @return array updated items' list
+     */
     public function count_multiple_comments($items)
     {
         if (count($items) === 0) {
