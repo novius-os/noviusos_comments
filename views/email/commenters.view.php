@@ -3,14 +3,16 @@
 \Nos\I18n::current_dictionary('noviusos_comments::front');
 
 // Note to translator: This is an email
-$msg = __("Hello,
+$msg = __(
+    "Hello,
 
 A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.
 
 {{comment}}
 
 - Reply: {{visualise_link}}
-- Unsubscribe from this discussion: {{unsubscribe_link}}");
+- Unsubscribe from this discussion: {{unsubscribe_link}}"
+);
 
 $visualise_url = \Nos\Tools_Url::encodePath($item->url());
 $unsubscribe_url = \Nos\Tools_Url::encodePath($item->url(array('unsubscribe' => true))).'?email='.urlencode($email);

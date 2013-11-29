@@ -25,15 +25,19 @@ class Add_Context extends \Nos\Migration
             }
             if (!empty($contextable)) {
                 $pk = $model::primary_key();
-                \DB::query('UPDATE `nos_comment`, `'.$model::table().'`'.
+                \DB::query(
+                    'UPDATE `nos_comment`, `'.$model::table().'`'.
                     ' SET `comm_context` = `'.$contextable['context_property'].'`'.
                     ' WHERE `comm_foreign_model` = '.\DB::quote($model, $model::connection(true)).
-                    ' AND `comm_foreign_id` = `'.$pk[0].'`')->execute();
+                    ' AND `comm_foreign_id` = `'.$pk[0].'`'
+                )->execute();
             }
 
-            \DB::query('DELETE FROM `nos_comment`'.
+            \DB::query(
+                'DELETE FROM `nos_comment`'.
                 ' WHERE `comm_foreign_model` = '.\DB::quote($model, $model::connection(true)).
-                ' AND `comm_foreign_id` NOT IN (SELECT `'.$pk[0].'` FROM `'.$model::table().'`)')->execute();
+                ' AND `comm_foreign_id` NOT IN (SELECT `'.$pk[0].'` FROM `'.$model::table().'`)'
+            )->execute();
         }
     }
 }

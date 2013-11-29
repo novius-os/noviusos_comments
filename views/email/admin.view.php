@@ -3,14 +3,16 @@
 \Nos\I18n::current_dictionary('noviusos_comments::common');
 
 // Note to translator: This is an email
-$msg = __("Hello,
+$msg = __(
+    "Hello,
 
 A new comment has just been posted for ‘{{item_title}}’:
 
 {{comment}}
 
 - Reply: {{visualise_link}}
-- Moderate: {{moderation_link}}");
+- Moderate: {{moderation_link}}"
+);
 
 $visualise_url = \Nos\Tools_Url::encodePath($item->url());
 $moderation_url = \Uri::base().'admin?tab='.urlencode('admin/noviusos_comments/comment/crud/insert_update/'.$comment->id);
