@@ -1,88 +1,154 @@
 <?php
 
-// Generated on 19/08/2013 18:12:14
+// Generated on 07/11/2013 15:24:52
 
-// 0 out of 25 messages are translated (0%).
-// 0 out of 82 words are translated (0%).
+// 34 out of 37 messages are translated (91%).
+// 141 out of 153 words are translated (91%).
 
 return array(
-    #. Note to translator: This is an email’s subject
-    #: classes/api.php:112
-    #: classes/api.php:133
+    #: classes/controller/admin/comment/crud.ctrl.php:39
+    #: config/controller/admin/comment/crud.config.php:37
+    #: config/common/comment.config.php:52
+    'Deleted content' => '',
+
+    #: classes/api.php:139
     '{{item_title}}: New comment' => '',
 
-    #: classes/api.php:150
+    #: classes/api.php:164
     'Comment to the post ‘{{post}}’.' => '',
 
     #. Note to translator: This is an email
-    #: views/email/admin.view.php:3
-    'Hello,'."\n".''."\n".'A new comment has just been posted for ‘{{item_title}}’:'."\n".''."\n".'{{comment}}'."\n".''."\n".'- Reply: {{visualise_link}}'."\n".'- Moderate: {{moderation_link}}' => '',
+    #: views/email/admin.view.php:6
+    'Hello,
 
-    #: views/admin/crud_title.php:2
-    'Comment for ‘{{title}}’' => '',
+A new comment has just been posted for ‘{{item_title}}’:
 
-    #: config/controller/admin/comment/crud.config.php:18
+{{comment}}
+
+- Reply: {{visualise_link}}
+- Moderate: {{moderation_link}}' => '',
+
+    #. Note to translator: This is an email
+    #: views/email/commenters.view.php:6
+    'Hello,
+
+A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.
+
+{{comment}}
+
+- Reply: {{visualise_link}}
+- Unsubscribe from this discussion: {{unsubscribe_link}}' => '',
+
+    #: config/controller/admin/comment/crud.config.php:15
     'Comment properties' => '',
 
-    #: config/controller/admin/comment/crud.config.php:44
+    #: config/controller/admin/comment/crud.config.php:36
+    #: config/controller/admin/comment/crud.config.php:54
+    'Comment for ‘{{title}}’' => '',
+
+    #: config/controller/admin/comment/crud.config.php:59
     'Author:' => '',
 
-    #: config/controller/admin/comment/crud.config.php:50
+    #: config/controller/admin/comment/crud.config.php:65
     'Author’s IP address:' => '',
 
-    #: config/controller/admin/comment/crud.config.php:55
+    #: config/controller/admin/comment/crud.config.php:70
     'Email address:' => '',
 
-    #: config/controller/admin/comment/crud.config.php:61
+    #: config/controller/admin/comment/crud.config.php:76
     'Sent on:' => '',
 
-    #: config/controller/admin/comment/crud.config.php:65
+    #: config/controller/admin/comment/crud.config.php:80
     'Status:' => '',
 
-    #: config/controller/admin/comment/crud.config.php:71
-    #: config/common/comment.config.php:9
+    #: config/controller/admin/comment/crud.config.php:86
+    #: config/common/comment.config.php:12
     'Refused' => '',
 
-    #: config/controller/admin/comment/crud.config.php:75
-    #: config/common/comment.config.php:8
+    #: config/controller/admin/comment/crud.config.php:90
+    #: config/common/comment.config.php:11
     'Pending' => '',
 
-    #: config/controller/admin/comment/crud.config.php:79
-    #: config/common/comment.config.php:7
+    #: config/controller/admin/comment/crud.config.php:94
+    #: config/common/comment.config.php:10
     'Published' => '',
 
-    #: config/controller/admin/comment/crud.config.php:86
+    #: config/controller/admin/comment/crud.config.php:101
     'Comment:' => '',
 
-    #: config/controller/admin/comment/appdesk.config.php:14
-    #: config/orm/behaviour/commentable.config.php:5
-    #: config/orm/behaviour/commentable.config.php:46
-    'Comments' => '',
+    #: config/controller/admin/comment/appdesk.config.php:17
+    'comment' => '',
 
-    #: config/controller/admin/comment/appdesk.config.php:34
-    #: config/orm/behaviour/commentable.config.php:17
-    #: config/orm/behaviour/commentable.config.php:56
+    #: config/controller/admin/comment/appdesk.config.php:18
+    'comments' => '',
+
+    #: config/controller/admin/comment/appdesk.config.php:20
+    '1 comment' => array(
+        0 => '',
+    ),
+
+    #: config/controller/admin/comment/appdesk.config.php:24
+    'Showing 1 comment out of {{y}}' => array(
+        0 => '',
+    ),
+
+    #: config/controller/admin/comment/appdesk.config.php:27
+    'No comments' => '',
+
+    #: config/controller/admin/comment/appdesk.config.php:28
+    'Showing all comments' => '',
+
+    #: config/controller/admin/comment/appdesk.config.php:37
+    'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.' => '',
+
+    #: config/controller/admin/comment/appdesk.config.php:48
+    #: config/orm/behaviour/commentable.config.php:20
+    #: config/orm/behaviour/commentable.config.php:59
     'Comments for ‘{{title}}’' => '',
 
-    #: config/orm/behaviour/commentable.config.php:71
+    #: config/orm/behaviour/commentable.config.php:8
+    #: config/orm/behaviour/commentable.config.php:49
+    'Comments' => '',
+
+    #: config/orm/behaviour/commentable.config.php:77
     'This item has no comments.' => '',
 
-    #: config/common/comment.config.php:16
+    #: config/common/comment.config.php:19
     'Comment' => '',
 
-    #: config/common/comment.config.php:28
+    #: config/common/comment.config.php:46
     'Posted for' => '',
 
-    #: config/common/comment.config.php:48
+    #: config/common/comment.config.php:74
     'Email address' => '',
 
-    #: config/common/comment.config.php:51
+    #: config/common/comment.config.php:77
     'Status' => '',
 
-    #: config/common/comment.config.php:67
+    #: config/common/comment.config.php:94
     'Date' => '',
 
-    #: config/common/comment.config.php:85
+    #. Crud
+    #: config/common/comment.config.php:112
+    'The comment has been deleted.' => '',
+
+    #. General errors
+    #: config/common/comment.config.php:115
+    'This comment doesn’t exist any more. It has been deleted.' => '',
+
+    #: config/common/comment.config.php:116
+    'We cannot find this comment.' => '',
+
+    #. Deletion popup
+    #: config/common/comment.config.php:119
+    'Deleting the comment ‘{{title}}’' => '',
+
+    #: config/common/comment.config.php:123
+    'Yes, delete this comment' => array(
+        0 => '',
+    ),
+
+    #: config/common/comment.config.php:131
     'Visualise' => '',
 
 );

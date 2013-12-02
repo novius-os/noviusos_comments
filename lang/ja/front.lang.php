@@ -1,55 +1,54 @@
 <?php
 
-// Generated on 19/08/2013 18:12:14
+// Generated on 07/11/2013 15:24:52
 
-// 9 out of 14 messages are translated (64%).
-// 34 out of 74 words are translated (64%).
+// 15 out of 15 messages are translated (100%).
+// 84 out of 84 words are translated (100%).
 
 return array(
-    #: views/front/add_comment_message.view.php:7
+    #: views/front/add_comment_message.view.php:10
     'You failed the captcha test. Please try again.' => 'captcha を正しく認識できませんでした。もう一度お試しください。',
 
-    #: views/front/add_comment_message.view.php:13
+    #: views/front/add_comment_message.view.php:16
+    'Your comment has been submitted and is now awaiting moderation.' => '',
+
+    #: views/front/add_comment_message.view.php:16
     'Your comment has been successfully added.' => 'コメントを追加しました。',
 
-    #: views/front/form.view.php:19
+    #: views/front/form.view.php:20
     'Leave a comment' => 'コメントを残す',
 
-    #: views/front/form.view.php:24
+    #: views/front/form.view.php:25
     'Name:' => '名前:',
 
-    #: views/front/form.view.php:28
+    #: views/front/form.view.php:29
     'Email address (never sold, shared nor spammed):' => 'メールアドレス (サイト運営者からの返信以外に使用することはありません):',
 
-    #: views/front/form.view.php:33
+    #: views/front/form.view.php:34
     'Receive new comments by email' => '',
 
-    #: views/front/form.view.php:38
+    #: views/front/form.view.php:39
     'Your comment:' => 'あなたのコメント:',
 
-    #: views/front/form.view.php:56
+    #: views/front/form.view.php:57
     'Send' => '送信',
 
-    #: views/front/subscriptions/unsubscribe.view.php:1
+    #: views/front/subscriptions/unsubscribe.view.php:4
     'OK, you won’t be notified any longer when new comments are posted.' => '',
 
-    #: views/front/subscriptions/unsubscribe.view.php:3
+    #: views/front/subscriptions/unsubscribe.view.php:6
     'I miscliked! I want to subscribe again.' => '',
 
-    #: views/front/subscriptions/subscribe.view.php:1
+    #: views/front/subscriptions/subscribe.view.php:4
     'You will now be notified when new comments are posted.' => '',
 
-    #: views/front/subscriptions/subscribe.view.php:3
+    #: views/front/subscriptions/subscribe.view.php:6
     'Finally, I want to unsubscribe again.' => '',
 
-    #: views/front/item.view.php:9
+    #: views/front/item.view.php:11
     'Comment by {{author}}' => '{{author}}のコメント',
 
-    #: views/front/item.view.php:10
+    #: views/front/item.view.php:12
     '%d/%m/%Y at %H:%M' => '%Y年%m月%d日 %H:%M',
-
-    #. Note to translator: This is an email
-    #: views/email/commenters.view.php:3
-    'Hello,'."\n".''."\n".'A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.'."\n".''."\n".'{{comment}}'."\n".''."\n".'- Reply: {{visualise_link}}'."\n".'- Unsubscribe from this discussion: {{unsubscribe_link}}' => '',
 
 );
