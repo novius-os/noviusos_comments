@@ -1,15 +1,15 @@
 <?php
 
-// Generated on 02/12/2013 17:53:33
+// Generated on 03/12/2013 16:06:58
 
 // 37 out of 37 messages are translated (100%).
-// 154 out of 154 words are translated (100%).
+// 153 out of 153 words are translated (100%).
 
 return array(
     #: classes/controller/admin/comment/crud.ctrl.php:39
     #: config/controller/admin/comment/crud.config.php:37
     #: config/common/comment.config.php:52
-    'Deleted content' => '',
+    'Deleted content' => 'Contenu supprimé',
 
     #: classes/api.php:157
     '{{item_title}}: New comment' => '{{item_title}} : Nouveau commentaire',
@@ -94,22 +94,28 @@ Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;�
     #: config/controller/admin/comment/appdesk.config.php:18
     'comments' => 'commentaires',
 
-    #: config/controller/admin/comment/appdesk.config.php:19
-    'Showing {{x}} comments out of {{y}}' => '',
-
     #: config/controller/admin/comment/appdesk.config.php:20
-    'Showing 1 comment' => '',
+    '1 comment' => array(
+        0 => '1 commentaire',
+        1 => '{{count}} commentaires',
+    ),
 
-    #: config/controller/admin/comment/appdesk.config.php:21
-    'No comments' => '',
+    #: config/controller/admin/comment/appdesk.config.php:24
+    'Showing 1 comment out of {{y}}' => array(
+        0 => '1 commentaire sur {{y}} affiché',
+        1 => '{{x}} commentaires sur {{y}} affichés',
+    ),
 
-    #: config/controller/admin/comment/appdesk.config.php:22
-    'Showing all comments' => '',
+    #: config/controller/admin/comment/appdesk.config.php:27
+    'No comments' => 'Pas de commentaire',
 
-    #: config/controller/admin/comment/appdesk.config.php:31
-    'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.' => '',
+    #: config/controller/admin/comment/appdesk.config.php:28
+    'Showing all comments' => 'Afficher tous les commentaires',
 
-    #: config/controller/admin/comment/appdesk.config.php:42
+    #: config/controller/admin/comment/appdesk.config.php:37
+    'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.' => 'Il y a un souci&nbsp;: Votre Novius OS n’est pas configuré pour envoyer des emails. Demandez à votre développeur de le configurer.',
+
+    #: config/controller/admin/comment/appdesk.config.php:48
     #: config/orm/behaviour/commentable.config.php:20
     #: config/orm/behaviour/commentable.config.php:59
     'Comments for ‘{{title}}’' => 'Commentaires pour «&nbsp;{{title}}&nbsp;»',
@@ -138,24 +144,26 @@ Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;�
 
     #. Crud
     #: config/common/comment.config.php:112
-    'The comment has been deleted.' => '',
+    'The comment has been deleted.' => 'Le commentaire a été supprimé.',
 
     #. General errors
     #: config/common/comment.config.php:115
-    'This comment doesn’t exist any more. It has been deleted.' => '',
+    'This comment doesn’t exist any more. It has been deleted.' => 'Ce commentaire n’existe plus. Il a été supprimé.',
 
     #: config/common/comment.config.php:116
-    'We cannot find this comment.' => '',
+    'We cannot find this comment.' => 'Nous n’arrivons pas à trouver ce commentaire.',
 
     #. Deletion popup
     #: config/common/comment.config.php:119
-    'Deleting the comment ‘{{title}}’' => '',
+    'Deleting the comment ‘{{title}}’' => 'Supprimer le commentaire «&nbsp;{{title}}&nbsp;»',
 
-    #. Delete action's labels
-    #: config/common/comment.config.php:122
-    'Yes, delete this comment' => '',
+    #: config/common/comment.config.php:123
+    'Yes, delete this comment' => array(
+        0 => 'Oui, supprimer ce commentaire',
+        1 => 'Oui, supprimer ces {{count}} commentaires',
+    ),
 
-    #: config/common/comment.config.php:128
+    #: config/common/comment.config.php:131
     'Visualise' => 'Visualiser',
 
 );

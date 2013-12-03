@@ -1,6 +1,6 @@
 <?php
 
-// Generated on 02/12/2013 17:53:33
+// Generated on 03/12/2013 16:06:58
 
 // 15 out of 15 messages are translated (100%).
 // 84 out of 84 words are translated (100%).
@@ -10,7 +10,7 @@ return array(
     'You failed the captcha test. Please try again.' => 'Vous n’avez pas passé le test du captcha. Merci de ré-essayer.',
 
     #: views/front/add_comment_message.view.php:16
-    'Your comment has been submitted and is now awaiting moderation.' => '',
+    'Your comment has been submitted and is now awaiting moderation.' => 'Votre commentaire a été soumis et il est maintenant en attente de validation.',
 
     #: views/front/add_comment_message.view.php:16
     'Your comment has been successfully added.' => 'Votre commentaire a bien été ajouté.',

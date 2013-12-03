@@ -1,9 +1,9 @@
 <?php
 
-// Generated on 02/12/2013 17:53:33
+// Generated on 03/12/2013 16:06:58
 
-// 37 out of 37 messages are translated (100%).
-// 154 out of 154 words are translated (100%).
+// 34 out of 37 messages are translated (91%).
+// 141 out of 153 words are translated (91%).
 
 return array(
     #: classes/controller/admin/comment/crud.ctrl.php:39
@@ -80,22 +80,26 @@ A new comment has just been posted for ‘{{item_title}}’. It might be a reply
     #: config/controller/admin/comment/appdesk.config.php:18
     'comments' => '',
 
-    #: config/controller/admin/comment/appdesk.config.php:19
-    'Showing {{x}} comments out of {{y}}' => '',
-
     #: config/controller/admin/comment/appdesk.config.php:20
-    'Showing 1 comment' => '',
+    '1 comment' => array(
+        0 => '',
+    ),
 
-    #: config/controller/admin/comment/appdesk.config.php:21
+    #: config/controller/admin/comment/appdesk.config.php:24
+    'Showing 1 comment out of {{y}}' => array(
+        0 => '',
+    ),
+
+    #: config/controller/admin/comment/appdesk.config.php:27
     'No comments' => '',
 
-    #: config/controller/admin/comment/appdesk.config.php:22
+    #: config/controller/admin/comment/appdesk.config.php:28
     'Showing all comments' => '',
 
-    #: config/controller/admin/comment/appdesk.config.php:31
+    #: config/controller/admin/comment/appdesk.config.php:37
     'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.' => '',
 
-    #: config/controller/admin/comment/appdesk.config.php:42
+    #: config/controller/admin/comment/appdesk.config.php:48
     #: config/orm/behaviour/commentable.config.php:20
     #: config/orm/behaviour/commentable.config.php:59
     'Comments for ‘{{title}}’' => '',
@@ -137,11 +141,12 @@ A new comment has just been posted for ‘{{item_title}}’. It might be a reply
     #: config/common/comment.config.php:119
     'Deleting the comment ‘{{title}}’' => '',
 
-    #. Delete action's labels
-    #: config/common/comment.config.php:122
-    'Yes, delete this comment' => '',
+    #: config/common/comment.config.php:123
+    'Yes, delete this comment' => array(
+        0 => '',
+    ),
 
-    #: config/common/comment.config.php:128
+    #: config/common/comment.config.php:131
     'Visualise' => '',
 
 );
