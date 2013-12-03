@@ -6,8 +6,8 @@
 // 9 out of 9 words are translated (100%).
 
 return array(
-    'Comments (required for both Blog and News stories)' => '',
+    'Comments (required for both Blog and News stories)' => 'Comentas (necessitat por Blog o Informations)',
 
-    'Comments' => '',
+    'Comments' => 'Comentas',
 
 );

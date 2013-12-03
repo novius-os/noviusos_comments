@@ -1,9 +1,9 @@
 <?php
 
-// Generated on 07/11/2013 15:24:52
+// Generated on 02/12/2013 17:53:33
 
-// 34 out of 37 messages are translated (91%).
-// 141 out of 153 words are translated (91%).
+// 37 out of 37 messages are translated (100%).
+// 154 out of 154 words are translated (100%).
 
 return array(
     #: classes/controller/admin/comment/crud.ctrl.php:39
@@ -11,14 +11,13 @@ return array(
     #: config/common/comment.config.php:52
     'Deleted content' => '',
 
-    #: classes/api.php:139
+    #: classes/api.php:157
     '{{item_title}}: New comment' => '',
 
-    #: classes/api.php:164
+    #: classes/api.php:188
     'Comment to the post ‘{{post}}’.' => '',
 
-    #. Note to translator: This is an email
-    #: views/email/admin.view.php:6
+    #: views/email/admin.view.php:7
     'Hello,
 
 A new comment has just been posted for ‘{{item_title}}’:
@@ -28,8 +27,7 @@ A new comment has just been posted for ‘{{item_title}}’:
 - Reply: {{visualise_link}}
 - Moderate: {{moderation_link}}' => '',
 
-    #. Note to translator: This is an email
-    #: views/email/commenters.view.php:6
+    #: views/email/commenters.view.php:7
     'Hello,
 
 A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.
@@ -82,26 +80,22 @@ A new comment has just been posted for ‘{{item_title}}’. It might be a reply
     #: config/controller/admin/comment/appdesk.config.php:18
     'comments' => '',
 
+    #: config/controller/admin/comment/appdesk.config.php:19
+    'Showing {{x}} comments out of {{y}}' => '',
+
     #: config/controller/admin/comment/appdesk.config.php:20
-    '1 comment' => array(
-        0 => '',
-    ),
+    'Showing 1 comment' => '',
 
-    #: config/controller/admin/comment/appdesk.config.php:24
-    'Showing 1 comment out of {{y}}' => array(
-        0 => '',
-    ),
-
-    #: config/controller/admin/comment/appdesk.config.php:27
+    #: config/controller/admin/comment/appdesk.config.php:21
     'No comments' => '',
 
-    #: config/controller/admin/comment/appdesk.config.php:28
+    #: config/controller/admin/comment/appdesk.config.php:22
     'Showing all comments' => '',
 
-    #: config/controller/admin/comment/appdesk.config.php:37
+    #: config/controller/admin/comment/appdesk.config.php:31
     'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.' => '',
 
-    #: config/controller/admin/comment/appdesk.config.php:48
+    #: config/controller/admin/comment/appdesk.config.php:42
     #: config/orm/behaviour/commentable.config.php:20
     #: config/orm/behaviour/commentable.config.php:59
     'Comments for ‘{{title}}’' => '',
@@ -143,12 +137,11 @@ A new comment has just been posted for ‘{{item_title}}’. It might be a reply
     #: config/common/comment.config.php:119
     'Deleting the comment ‘{{title}}’' => '',
 
-    #: config/common/comment.config.php:123
-    'Yes, delete this comment' => array(
-        0 => '',
-    ),
+    #. Delete action's labels
+    #: config/common/comment.config.php:122
+    'Yes, delete this comment' => '',
 
-    #: config/common/comment.config.php:131
+    #: config/common/comment.config.php:128
     'Visualise' => '',
 
 );
