@@ -1,6 +1,6 @@
 <?php
 
-// Generated on 03/12/2013 16:06:58
+// Generated on 03/12/2013 16:22:23
 
 // 35 out of 37 messages are translated (94%).
 // 145 out of 153 words are translated (94%).
@@ -99,7 +99,6 @@ A new comment has just been posted for ‘{{item_title}}’. It might be a reply
         0 => '',
         1 => '',
         2 => '{{count}} комментариев',
-        3 => '',
     ),
 
     #: config/controller/admin/comment/appdesk.config.php:24
@@ -107,7 +106,6 @@ A new comment has just been posted for ‘{{item_title}}’. It might be a reply
         0 => '',
         1 => '',
         2 => 'Показано комментариев: {{x}} из {{y}}',
-        3 => '',
     ),
 
     #: config/controller/admin/comment/appdesk.config.php:27
@@ -166,7 +164,6 @@ A new comment has just been posted for ‘{{item_title}}’. It might be a reply
         0 => 'Да, я хочу удалить этот комментарий',
         1 => '',
         2 => '',
-        3 => '',
     ),
 
     #: config/common/comment.config.php:131
