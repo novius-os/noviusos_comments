@@ -1,21 +1,21 @@
 <?php
 
-// Generated on 03/12/2013 16:22:23
+// Generated on 11/12/2013 10:31:03
 
-// 34 out of 37 messages are translated (91%).
-// 141 out of 153 words are translated (91%).
+// 37 out of 37 messages are translated (100%).
+// 153 out of 153 words are translated (100%).
 
 return array(
     #: classes/controller/admin/comment/crud.ctrl.php:39
     #: config/controller/admin/comment/crud.config.php:37
     #: config/common/comment.config.php:52
-    'Deleted content' => '',
+    'Deleted content' => '削除されたコンテンツ',
 
     #: classes/api.php:157
-    '{{item_title}}: New comment' => '',
+    '{{item_title}}: New comment' => '{{item_title}}: 新しいコメント',
 
     #: classes/api.php:188
-    'Comment to the post ‘{{post}}’.' => '',
+    'Comment to the post ‘{{post}}’.' => '投稿‘{{post}}’へのコメント',
 
     #: views/email/admin.view.php:7
     'Hello,
@@ -25,7 +25,14 @@ A new comment has just been posted for ‘{{item_title}}’:
 {{comment}}
 
 - Reply: {{visualise_link}}
-- Moderate: {{moderation_link}}' => '',
+- Moderate: {{moderation_link}}' => 'こんにちは。
+
+‘{{item_title}}’に新しいコメントが投稿されました。
+
+{{comment}}
+
+- 返信する: {{visualise_link}}
+- 承認する: {{moderation_link}}',
 
     #: views/email/commenters.view.php:7
     'Hello,
@@ -35,118 +42,125 @@ A new comment has just been posted for ‘{{item_title}}’. It might be a reply
 {{comment}}
 
 - Reply: {{visualise_link}}
-- Unsubscribe from this discussion: {{unsubscribe_link}}' => '',
+- Unsubscribe from this discussion: {{unsubscribe_link}}' => 'こんにちは。
+
+‘{{item_title}}’に新しいコメントが投稿されました。あなたのコメントへの返信かもしれません。
+
+{{comment}}
+
+- 返信する: {{visualise_link}}
+- このスレッドの通知を受け取らない: {{unsubscribe_link}}',
 
     #: config/controller/admin/comment/crud.config.php:15
-    'Comment properties' => '',
+    'Comment properties' => 'コメントプロパティ',
 
     #: config/controller/admin/comment/crud.config.php:36
     #: config/controller/admin/comment/crud.config.php:54
-    'Comment for ‘{{title}}’' => '',
+    'Comment for ‘{{title}}’' => '‘{{title}}’へのコメント',
 
     #: config/controller/admin/comment/crud.config.php:59
-    'Author:' => '',
+    'Author:' => 'コメント作者: ',
 
     #: config/controller/admin/comment/crud.config.php:65
-    'Author’s IP address:' => '',
+    'Author’s IP address:' => 'コメント作者の IP アドレス: ',
 
     #: config/controller/admin/comment/crud.config.php:70
-    'Email address:' => '',
+    'Email address:' => 'メールアドレス: ',
 
     #: config/controller/admin/comment/crud.config.php:76
-    'Sent on:' => '',
+    'Sent on:' => '送信日時: ',
 
     #: config/controller/admin/comment/crud.config.php:80
-    'Status:' => '',
+    'Status:' => '状態: ',
 
     #: config/controller/admin/comment/crud.config.php:86
     #: config/common/comment.config.php:12
-    'Refused' => '',
+    'Refused' => '拒否',
 
     #: config/controller/admin/comment/crud.config.php:90
     #: config/common/comment.config.php:11
-    'Pending' => '',
+    'Pending' => '承認待ち',
 
     #: config/controller/admin/comment/crud.config.php:94
     #: config/common/comment.config.php:10
-    'Published' => '',
+    'Published' => '公開',
 
     #: config/controller/admin/comment/crud.config.php:101
-    'Comment:' => '',
+    'Comment:' => 'コメント: ',
 
     #: config/controller/admin/comment/appdesk.config.php:17
-    'comment' => '',
+    'comment' => 'コメント',
 
     #: config/controller/admin/comment/appdesk.config.php:18
-    'comments' => '',
+    'comments' => 'コメント',
 
     #: config/controller/admin/comment/appdesk.config.php:20
     '1 comment' => array(
-        0 => '',
+        0 => '1件のコメント{{count}}件のコメント',
     ),
 
     #: config/controller/admin/comment/appdesk.config.php:24
     'Showing 1 comment out of {{y}}' => array(
-        0 => '',
+        0 => '{{y}}件のコメントのうち、1件を表示しています。{{y}}件のコメントのうち、{{x}}件を表示しています。',
     ),
 
     #: config/controller/admin/comment/appdesk.config.php:27
-    'No comments' => '',
+    'No comments' => 'コメント無し',
 
     #: config/controller/admin/comment/appdesk.config.php:28
-    'Showing all comments' => '',
+    'Showing all comments' => '全てのコメントを表示しています',
 
     #: config/controller/admin/comment/appdesk.config.php:37
-    'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.' => '',
+    'You have a problem here: Your Novius OS is not set up to send emails. You’ll have to ask your developer to set it up for you.' => '問題が発生しました。現在、Novius OS はメールを送信するように設定されていません。開発者に連絡し、設定をお願いしてください。',
 
     #: config/controller/admin/comment/appdesk.config.php:48
     #: config/orm/behaviour/commentable.config.php:20
     #: config/orm/behaviour/commentable.config.php:59
-    'Comments for ‘{{title}}’' => '',
+    'Comments for ‘{{title}}’' => '‘{{title}}’へのコメント',
 
     #: config/orm/behaviour/commentable.config.php:8
     #: config/orm/behaviour/commentable.config.php:49
-    'Comments' => '',
+    'Comments' => 'コメント',
 
     #: config/orm/behaviour/commentable.config.php:77
-    'This item has no comments.' => '',
+    'This item has no comments.' => 'このアイテムには、コメントがありません。',
 
     #: config/common/comment.config.php:19
-    'Comment' => '',
+    'Comment' => 'コメント',
 
     #: config/common/comment.config.php:46
-    'Posted for' => '',
+    'Posted for' => 'コメント先',
 
     #: config/common/comment.config.php:74
-    'Email address' => '',
+    'Email address' => 'メールアドレス',
 
     #: config/common/comment.config.php:77
-    'Status' => '',
+    'Status' => '状態',
 
     #: config/common/comment.config.php:94
-    'Date' => '',
+    'Date' => '日付',
 
     #. Crud
     #: config/common/comment.config.php:112
-    'The comment has been deleted.' => '',
+    'The comment has been deleted.' => 'コメントは削除されています。',
 
     #. General errors
     #: config/common/comment.config.php:115
-    'This comment doesn’t exist any more. It has been deleted.' => '',
+    'This comment doesn’t exist any more. It has been deleted.' => 'このコメントは存在しません。削除されました。',
 
     #: config/common/comment.config.php:116
-    'We cannot find this comment.' => '',
+    'We cannot find this comment.' => 'コメントが見つかりません。',
 
     #. Deletion popup
     #: config/common/comment.config.php:119
-    'Deleting the comment ‘{{title}}’' => '',
+    'Deleting the comment ‘{{title}}’' => 'コメント‘{{title}}’を削除しようとしています',
 
     #: config/common/comment.config.php:123
     'Yes, delete this comment' => array(
-        0 => '',
+        0 => 'はい、このコメントを削除します。はい、これら{{count}}件のコメントを削除します。',
     ),
 
     #: config/common/comment.config.php:131
-    'Visualise' => '',
+    'Visualise' => '閲覧',
 
 );
