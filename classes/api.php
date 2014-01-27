@@ -51,7 +51,7 @@ class API
                 $model = $this->_config['model'];
                 $item = $model::find($data['id']);
                 $comm = new Model_Comment();
-                $comm->comm_context = \Nos\Nos::main_controller()->getContext();
+                $comm->comm_context = !empty($data['comm_context']) ? $data['comm_context'] : \Nos\Nos::main_controller()->getContext();
                 $comm->comm_foreign_model = $model;
                 $comm->comm_email = $data['comm_email'];
                 $comm->comm_author = $data['comm_author'];
