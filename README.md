@@ -6,7 +6,7 @@ The ‘Comments’ application for Novius OS allows you to get and moderate comm
 
 ## Requirements
 
-* ‘Comments’ runs on Novius OS Chiba 2.
+* ‘Comments’ runs on Novius OS Dubrovka.
 
 ## Installation
 
