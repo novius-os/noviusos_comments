@@ -31,11 +31,10 @@ return array(
             },
             'sorting_callback' => function (&$query, $sortDirection) {
                 $model = $query->model();
-                $comments_relation = call_user_func($model . '::relations', $this->_properties['comments_relation']);
                 $prefix = $model::prefix();
 
                 $join = array();
-                $query->_join_relation($comments_relation->name, $join);
+                $query->_join_relation('comments', $join);
                 $query->group_by($join['alias_from'].'.'.$prefix.'id');
                 $query->order_by(\Db::expr('COUNT(*)'), $sortDirection);
             },
