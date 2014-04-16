@@ -10,7 +10,7 @@
 
 return array(
     'name'    => 'Comments',
-    'version' => '4.1 (Dubrovka)',
+    'version' => '4.2 (Dubrovka)',
     'provider' => array(
         'name' => 'NoviusOS',
     ),
