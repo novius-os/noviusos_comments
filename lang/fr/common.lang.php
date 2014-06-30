@@ -1,62 +1,22 @@
 <?php
 
-// Generated on 03/12/2013 16:22:23
+// Generated on 30/06/2014 14:54:18
 
 // 37 out of 37 messages are translated (100%).
 // 153 out of 153 words are translated (100%).
 
 return array(
-    #: classes/controller/admin/comment/crud.ctrl.php:39
-    #: config/controller/admin/comment/crud.config.php:37
-    #: config/common/comment.config.php:52
-    'Deleted content' => 'Contenu supprimé',
-
-    #: classes/api.php:157
-    '{{item_title}}: New comment' => '{{item_title}} : Nouveau commentaire',
-
-    #: classes/api.php:188
-    'Comment to the post ‘{{post}}’.' => 'Commentaire du billlet «&nbsp;{{post}}&nbsp;».',
-
-    #: views/email/admin.view.php:7
-    'Hello,
-
-A new comment has just been posted for ‘{{item_title}}’:
-
-{{comment}}
-
-- Reply: {{visualise_link}}
-- Moderate: {{moderation_link}}' => 'Bonjour,
-
-Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;»&nbsp;:
-
-{{comment}}
-
-- Répondre&nbsp;: {{visualise_link}}
-- Modérer&nbsp;: {{moderation_link}}',
-
-    #: views/email/commenters.view.php:7
-    'Hello,
-
-A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.
-
-{{comment}}
-
-- Reply: {{visualise_link}}
-- Unsubscribe from this discussion: {{unsubscribe_link}}' => 'Bonjour,
-
-Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;». Il s’agit peut-être d\'une réponse à votre commentaire.
-
-{{comment}}
-
-- Répondre&nbsp;: {{visualise_link}}
-- Ne plus suivre cette discussion&nbsp;: {{unsubscribe_link}}',
-
     #: config/controller/admin/comment/crud.config.php:15
     'Comment properties' => 'Propriétés du commentaire',
 
     #: config/controller/admin/comment/crud.config.php:36
     #: config/controller/admin/comment/crud.config.php:54
     'Comment for ‘{{title}}’' => 'Commentaire pour «&nbsp;{{title}}&nbsp;»',
+
+    #: config/controller/admin/comment/crud.config.php:37
+    #: config/common/comment.config.php:52
+    #: classes/controller/admin/comment/crud.ctrl.php:39
+    'Deleted content' => 'Contenu supprimé',
 
     #: config/controller/admin/comment/crud.config.php:59
     'Author:' => 'Auteur&nbsp;:',
@@ -117,15 +77,8 @@ Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;�
 
     #: config/controller/admin/comment/appdesk.config.php:48
     #: config/orm/behaviour/commentable.config.php:20
-    #: config/orm/behaviour/commentable.config.php:59
+    #: config/orm/behaviour/commentable.config.php:58
     'Comments for ‘{{title}}’' => 'Commentaires pour «&nbsp;{{title}}&nbsp;»',
-
-    #: config/orm/behaviour/commentable.config.php:8
-    #: config/orm/behaviour/commentable.config.php:49
-    'Comments' => 'Commentaires',
-
-    #: config/orm/behaviour/commentable.config.php:77
-    'This item has no comments.' => 'Cet item n’a pas de commentaire.',
 
     #: config/common/comment.config.php:19
     'Comment' => 'Commentaire',
@@ -165,5 +118,52 @@ Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;�
 
     #: config/common/comment.config.php:131
     'Visualise' => 'Visualiser',
+
+    #: config/orm/behaviour/commentable.config.php:8
+    #: config/orm/behaviour/commentable.config.php:48
+    'Comments' => 'Commentaires',
+
+    #: config/orm/behaviour/commentable.config.php:76
+    'This item has no comments.' => 'Cet item n’a pas de commentaire.',
+
+    #: views/email/commenters.view.php:7
+    'Hello,
+
+A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.
+
+{{comment}}
+
+- Reply: {{visualise_link}}
+- Unsubscribe from this discussion: {{unsubscribe_link}}' => 'Bonjour,
+
+Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;». Il s’agit peut-être d\'une réponse à votre commentaire.
+
+{{comment}}
+
+- Répondre&nbsp;: {{visualise_link}}
+- Ne plus suivre cette discussion&nbsp;: {{unsubscribe_link}}',
+
+    #: views/email/admin.view.php:7
+    'Hello,
+
+A new comment has just been posted for ‘{{item_title}}’:
+
+{{comment}}
+
+- Reply: {{visualise_link}}
+- Moderate: {{moderation_link}}' => 'Bonjour,
+
+Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;»&nbsp;:
+
+{{comment}}
+
+- Répondre&nbsp;: {{visualise_link}}
+- Modérer&nbsp;: {{moderation_link}}',
+
+    #: classes/api.php:157
+    '{{item_title}}: New comment' => '{{item_title}} : Nouveau commentaire',
+
+    #: classes/api.php:188
+    'Comment to the post ‘{{post}}’.' => 'Commentaire du billlet «&nbsp;{{post}}&nbsp;».',
 
 );
