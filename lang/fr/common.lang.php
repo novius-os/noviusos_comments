@@ -136,7 +136,7 @@ A new comment has just been posted for ‘{{item_title}}’. It might be a reply
 - Reply: {{visualise_link}}
 - Unsubscribe from this discussion: {{unsubscribe_link}}' => 'Bonjour,
 
-Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;». Il s’agit peut-être d\'une réponse à votre commentaire.
+Un nouveau commentaire vient d’être publié pour «&nbsp;{{item_title}}&nbsp;». Il s’agit peut-être d’une réponse à votre commentaire.
 
 {{comment}}
 
@@ -153,7 +153,7 @@ A new comment has just been posted for ‘{{item_title}}’:
 - Reply: {{visualise_link}}
 - Moderate: {{moderation_link}}' => 'Bonjour,
 
-Un nouveau commentaire vient d\'être publié pour «&nbsp;{{item_title}}&nbsp;»&nbsp;:
+Un nouveau commentaire vient d’être publié pour «&nbsp;{{item_title}}&nbsp;»&nbsp;:
 
 {{comment}}
 
