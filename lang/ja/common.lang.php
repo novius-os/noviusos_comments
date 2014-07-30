@@ -1,62 +1,22 @@
 <?php
 
-// Generated on 11/12/2013 17:57:29
+// Generated on 30/07/2014 09:57:01
 
 // 37 out of 37 messages are translated (100%).
 // 153 out of 153 words are translated (100%).
 
 return array(
-    #: classes/controller/admin/comment/crud.ctrl.php:39
-    #: config/controller/admin/comment/crud.config.php:37
-    #: config/common/comment.config.php:52
-    'Deleted content' => '削除されたコンテンツ',
-
-    #: classes/api.php:157
-    '{{item_title}}: New comment' => '{{item_title}}: 新しいコメント',
-
-    #: classes/api.php:188
-    'Comment to the post ‘{{post}}’.' => '投稿‘{{post}}’へのコメント',
-
-    #: views/email/admin.view.php:7
-    'Hello,
-
-A new comment has just been posted for ‘{{item_title}}’:
-
-{{comment}}
-
-- Reply: {{visualise_link}}
-- Moderate: {{moderation_link}}' => 'こんにちは。
-
-‘{{item_title}}’に新しいコメントが投稿されました。
-
-{{comment}}
-
-- 返信する: {{visualise_link}}
-- 承認する: {{moderation_link}}',
-
-    #: views/email/commenters.view.php:7
-    'Hello,
-
-A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.
-
-{{comment}}
-
-- Reply: {{visualise_link}}
-- Unsubscribe from this discussion: {{unsubscribe_link}}' => 'こんにちは。
-
-‘{{item_title}}’に新しいコメントが投稿されました。あなたのコメントへの返信かもしれません。
-
-{{comment}}
-
-- 返信する: {{visualise_link}}
-- このスレッドの通知を受け取らない: {{unsubscribe_link}}',
-
     #: config/controller/admin/comment/crud.config.php:15
     'Comment properties' => 'コメントプロパティ',
 
     #: config/controller/admin/comment/crud.config.php:36
     #: config/controller/admin/comment/crud.config.php:54
     'Comment for ‘{{title}}’' => '‘{{title}}’へのコメント',
+
+    #: config/controller/admin/comment/crud.config.php:37
+    #: config/common/comment.config.php:52
+    #: classes/controller/admin/comment/crud.ctrl.php:39
+    'Deleted content' => '削除されたコンテンツ',
 
     #: config/controller/admin/comment/crud.config.php:59
     'Author:' => 'コメント作者: ',
@@ -115,15 +75,8 @@ A new comment has just been posted for ‘{{item_title}}’. It might be a reply
 
     #: config/controller/admin/comment/appdesk.config.php:48
     #: config/orm/behaviour/commentable.config.php:20
-    #: config/orm/behaviour/commentable.config.php:59
+    #: config/orm/behaviour/commentable.config.php:58
     'Comments for ‘{{title}}’' => '‘{{title}}’へのコメント',
-
-    #: config/orm/behaviour/commentable.config.php:8
-    #: config/orm/behaviour/commentable.config.php:49
-    'Comments' => 'コメント',
-
-    #: config/orm/behaviour/commentable.config.php:77
-    'This item has no comments.' => 'このアイテムには、コメントがありません。',
 
     #: config/common/comment.config.php:19
     'Comment' => 'コメント',
@@ -162,5 +115,52 @@ A new comment has just been posted for ‘{{item_title}}’. It might be a reply
 
     #: config/common/comment.config.php:131
     'Visualise' => '閲覧',
+
+    #: config/orm/behaviour/commentable.config.php:8
+    #: config/orm/behaviour/commentable.config.php:48
+    'Comments' => 'コメント',
+
+    #: config/orm/behaviour/commentable.config.php:76
+    'This item has no comments.' => 'このアイテムには、コメントがありません。',
+
+    #: views/email/commenters.view.php:7
+    'Hello,
+
+A new comment has just been posted for ‘{{item_title}}’. It might be a reply to your previous comment.
+
+{{comment}}
+
+- Reply: {{visualise_link}}
+- Unsubscribe from this discussion: {{unsubscribe_link}}' => 'こんにちは。
+
+‘{{item_title}}’に新しいコメントが投稿されました。あなたのコメントへの返信かもしれません。
+
+{{comment}}
+
+- 返信する: {{visualise_link}}
+- このスレッドの通知を受け取らない: {{unsubscribe_link}}',
+
+    #: views/email/admin.view.php:7
+    'Hello,
+
+A new comment has just been posted for ‘{{item_title}}’:
+
+{{comment}}
+
+- Reply: {{visualise_link}}
+- Moderate: {{moderation_link}}' => 'こんにちは。
+
+‘{{item_title}}’に新しいコメントが投稿されました。
+
+{{comment}}
+
+- 返信する: {{visualise_link}}
+- 承認する: {{moderation_link}}',
+
+    #: classes/api.php:157
+    '{{item_title}}: New comment' => '{{item_title}}: 新しいコメント',
+
+    #: classes/api.php:188
+    'Comment to the post ‘{{post}}’.' => '投稿‘{{post}}’へのコメント',
 
 );
